@@ -1,0 +1,96 @@
+        body {
+            margin-top: -24px;
+        }
+        
+        .backGround {
+            width: 100vw;
+            height: 852px;
+            background: linear-gradient(180deg, #20E9A9 0.59%, #0C7C59 100%);
+        }
+        
+        .header {
+            position: relative;
+            width: 100vw;
+            height: 285px;
+            flex-shrink: 0;
+        }
+        
+        .header h1 {
+            position: absolute;
+            top: 12px;
+        }
+        
+        .heading {
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .loginContainer {
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            text-align: center;
+            padding-top: 8px;
+            width: 285px;
+            height: 240px;
+            border-radius: 25px;
+            background: rgba(30, 30, 30, 0.50);
+            box-shadow: 8px 10px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+        
+        .loginContainer h2 {
+            margin-bottom: 8px;
+        }
+        
+        p {
+            margin-top: 0px;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        
+        .subheading {
+            font-size: 36px;
+        }
+        
+        .textField {
+            width: 240px;
+            height: 32px;
+            border-radius: 24px;
+            background: #D9D9D9;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            margin: 6px;
+        }
+        
+        .loginButton {
+            width: 240px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 24px;
+            background: #0C7C59;
+        }
+        
+        .loginButton h2 {
+            position: relative;
+            top: -32px;
+            color: #FFF;
+            text-align: center;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.40);
+            font-family: Julius Sans One;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100vw;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 10px;
+        }

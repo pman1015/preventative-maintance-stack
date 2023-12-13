@@ -33,3 +33,4 @@ build/
 .vscode/
 /ssl
 /src/main/resources/application.properties
+*.properties

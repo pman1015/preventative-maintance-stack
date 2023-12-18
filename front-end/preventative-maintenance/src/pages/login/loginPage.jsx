@@ -1,22 +1,41 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Navigate } from 'react-router-dom';
 import { handelLogin } from "../../util/login.jsx";
 import "./../../index.css";
 import "./loginPage.css";
 
 function LoginPage(){
    const [inputData, setInputData] = useState({username:'',password:''});
-   const [login,setLogin] = useState(false);
+   const [responseData, setResponseData] = useState({});
+   const [lastLoggedStatus, setLastLoggedStatus] = useState(0);
    
 
-   function loginOnDB(event){
+   useEffect(()=>{
     
-        handelLogin(inputData);
+       if(responseData.status === 200){
+        console.log('Success');
+        console.log(responseData);
+        localStorage.setItem("Authentication",JSON.stringify(responseData.data));
+       
+    }else if(responseData.status !== undefined){
+        console.log('Error');
+        console.log(responseData);
+    } 
     
-   
+    
+   },[responseData])
+
+    function loginOnDB(event){
+        handelLogin(inputData, setResponseData);
+        
    };
     return (
         <div className="backGround">
+            
+            {responseData.status === 200 && (
+          <Navigate to="/dashboard" replace={true} />
+        )}
             <div className = "header">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 10 383 275"   fill="none">
                     <path d="M0 16C0 7.16345 7.16344 0 16 0H377C385.837 0 393 7.16344 393 16V185L0 285V16Z" fill="#0C7C59" fill-opacity="0.7"/>

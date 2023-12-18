@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,21 +41,46 @@ public class userController {
 
   @PostMapping("/users")
   public ResponseEntity<User> createUser(@RequestBody User user) {
-   
     try {
-     User _user = new User();
-     _user.setUsername(user.getUsername());
-     _user.setPassword(user.getPassword());
-     if(user.getRole() == null){
-      _user.setRole("student");
-     }else{
-      _user.setRole(user.getRole());
-     }
+      User _user = new User();
+      _user.setUsername(user.getUsername());
+      _user.setPassword(user.getPassword());
+      if (user.getRole() == null) {
+        _user.setRole("student");
+      } else {
+        _user.setRole(user.getRole());
+      }
       userRepository.save(_user);
       return new ResponseEntity<>(_user, HttpStatus.CREATED);
     } catch (Exception e) {
       e.printStackTrace();
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+  }
+
+  @GetMapping("/validate")
+  public ResponseEntity<User> getMethodName(@RequestBody User user) {
+    try {
+      User _user = new User();
+      if (user.getUsername() == null || user.getPassword() == null) {
+        return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);
+      }
+      List<User> result = userRepository.findByUsername(user.getUsername());
+      if (result.size() > 0) {
+        if (result.get(0).getPassword().equals(user.getPassword())) {
+          return new ResponseEntity<>(result.get(0), HttpStatus.OK);
+        } else {
+          return new ResponseEntity<>(
+            null,
+            HttpStatus.NON_AUTHORITATIVE_INFORMATION
+          );
+        }
+      } else {
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }

@@ -31,7 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-/ssl
-/src/main/resources/application.properties
-*.properties
 /src/main/resources/cert
+application.properties

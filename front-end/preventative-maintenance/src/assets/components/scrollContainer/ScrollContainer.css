@@ -1,0 +1,34 @@
+.react-horizontal-scrolling-menu--wrapper {
+    width: 95%;
+    margin-left: 2.5%;
+    height: calc(100% - 40px);
+    border-radius: 16px;
+    background: rgba(12, 124, 89, 0.70);
+}
+
+.react-horizontal-scrolling-menu--inner-wrapper {}
+
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+    padding-top: 10px;
+}
+
+.react-horizontal-scrolling-menu--arrow-left,
+.react-horizontal-scrolling-menu--arrow-right {
+    display: flex;
+    align-items: center;
+}
+
+.react-horizontal-scrolling-menu--item {}
+
+.upcomming-work-card {
+    width: 138px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: rgba(30, 30, 30, 0.409);
+    box-shadow: 6px 14px 4px 0px rgba(0, 0, 0, 0.25);
+}

@@ -11,32 +11,6 @@
             background: linear-gradient(180deg, #20E9A9 0.59%, #0C7C59 100%);
         }
         
-        .header {
-            max-width: 450px;
-            position: relative;
-            width: 100vw;
-            max-height: 285px;
-            flex-shrink: 0;
-        }
-        
-        .header svg {
-            max-height: 450px;
-            margin-left: calc(50% - width);
-        }
-        
-        .header h1 {
-            max-width: 450px;
-            position: absolute;
-            top: 12px;
-        }
-        
-        .heading {
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 400;
-            text-align: center;
-        }
-        
         .loginContainer {
             margin-left: auto;
             margin-right: auto;

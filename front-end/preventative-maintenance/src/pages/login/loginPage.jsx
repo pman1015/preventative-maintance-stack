@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { handelLogin } from "../../util/login.jsx";
 import "./../../index.css";
 import "./loginPage.css";
+import Header from "../../assets/components/Header.jsx";
 
 function LoginPage(){
    const [inputData, setInputData] = useState({username:'',password:''});
@@ -36,12 +37,8 @@ function LoginPage(){
             {responseData.status === 200 && (
           <Navigate to="/dashboard" replace={true} />
         )}
-            <div className = "header">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 10 383 275"   fill="none">
-                    <path d="M0 16C0 7.16345 7.16344 0 16 0H377C385.837 0 393 7.16344 393 16V185L0 285V16Z" fill="#0C7C59" fill-opacity="0.7"/>
-                </svg>
-                <h1 className="heading whiteText">Welcome to the Preventative Maintaince Tool</h1> 
-            </div>
+            <Header size = "normal" text = "Welcome to the Preventative Maintaince Tool" />
+            
             <div className = "loginContainer">
                 <h2 className="subHeading whiteText">Please Login</h2>
                 <p className="whiteText">Enter your login <br/> information as provided</p>

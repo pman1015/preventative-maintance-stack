@@ -1,0 +1,60 @@
+    .upcomming-work {
+        max-width: 450px;
+        height: 220px;
+        width: 98vw;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.30);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .most-recent-task-card--wrapper {
+        margin-top: 16px;
+        margin-right: auto;
+        margin-left: 4px;
+        padding: 4px;
+        width: 193px;
+        height: 217px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.30);
+    }
+    
+    .lower-content {
+        display: flex;
+        flex: row;
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    .most-recent-task-card--container {
+        display: flex;
+        flex-direction: column;
+        padding: 6px;
+        width: 169px;
+        height: 139px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: rgba(30, 30, 30, 0.50);
+    }
+    
+    .messages--wrapper {
+        margin-top: 16px;
+        margin-left: auto;
+        margin-left: 4px;
+        padding: 4px;
+        width: 193px;
+        height: 217px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.30);
+    }
+    
+    .messages--container {
+        width: 190px;
+        height: 180px;
+        margin-left: 2px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: rgba(30, 30, 30, 0.50);
+    }

@@ -18,4 +18,35 @@ code {
     color: #FFF;
     font-family: Julius Sans One;
     line-height: normal;
+    margin: 4px;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #20E9A9 0.59%, #0C7C59 100%);
+}
+
+.medium-text {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.small-text {
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.gray-heading {
+    color: #1E1E1E;
+    text-align: left;
+    font-family: Julius Sans One;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 4px;
 }

@@ -4,7 +4,7 @@ export function handelLogin(inputData,setResponseData){
     if(inputData.username === "" || inputData.password === "")return;
     try{
        axios.post(
-    'http://localhost:8080/api/validate',
+    'http://localhost:8080/userAPI/validate',
      inputData,
      {headers : {
         'content-type': 'application/json',

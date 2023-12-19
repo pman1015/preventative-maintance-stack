@@ -1,0 +1,22 @@
+    .NavBar {
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        width: 100vw;
+        height: 90px;
+        max-width: 450px;
+        border-radius: 0px 0px 16px 16px;
+        background: rgba(255, 255, 255, 0.11);
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .icon-button {
+        margin: 2px;
+        background-color: transparent;
+        border-color: transparent;
+    }
+    
+    .icon-button :hover {
+        opacity: .5;
+    }

@@ -1,0 +1,37 @@
+    .header {
+        max-width: 450px;
+        max-height: 500px;
+        position: relative;
+        width: 100vw;
+        flex-shrink: 0;
+    }
+    
+    .header.short {
+        height: 250px;
+    }
+    
+    .headerText {
+        align-items: center;
+        width: 100vw;
+        max-width: 450px;
+        position: absolute;
+        display: flex;
+        top: 10px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .left {
+        justify-content: left;
+    }
+    
+    .headerText.left h1 {
+        margin-left: 12px;
+    }
+    
+    .heading {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 400;
+        text-align: center;
+    }

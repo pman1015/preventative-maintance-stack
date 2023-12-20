@@ -1,10 +1,14 @@
 import axios from "axios";
 
+const local = 'http://localhost';
+const remote = 'http://hurd1999-andes.nord'
+const isremote = true;
+
 export function handelLogin(inputData,setResponseData){  
     if(inputData.username === "" || inputData.password === "")return;
     try{
        axios.post(
-    'http://localhost:8080/userAPI/validate',
+    `${isremote ? remote : local}:8080/userAPI/validate`,
      inputData,
      {headers : {
         'content-type': 'application/json',

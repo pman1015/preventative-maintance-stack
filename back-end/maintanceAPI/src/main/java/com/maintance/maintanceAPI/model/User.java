@@ -4,31 +4,33 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
 @Table(name = "users")
 @Data
 public class User {
-    
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer user_id;
 
-    @Column(name="username")
-    private String username;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer user_id;
 
-    @Column(name="password")
-    private String password;
+  @NotNull(message = "username must not be null")
+  @Column(name = "username",unique = true)
+  private String username;
 
-    @Column(name="role")
-    private String role;
+  @NotNull(message = "password must not be null")
+  @Column(name = "password")
+  private String password;
 
- 
+  @Pattern(regexp = "^(admin|user)$" ,message = "Role must be user or admin")
+  @Column(name = "role")
+  private String role;
 }

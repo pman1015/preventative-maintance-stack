@@ -21,8 +21,8 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/build-push-action@v5
         with:
-          context: ./back-end/maintanceAPI
-          file: ./Dockerfile
+          context: .
+          file: ./back-end/maintanceAPI/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pm:latest
           

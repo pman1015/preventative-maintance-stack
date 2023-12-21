@@ -7,16 +7,19 @@ import "./dashboard.css";
 
 function DashboardPage() {
 	const [user, setUser] = useState({});
+	const [jwt, setJwt] = useState({});
 	// one time use effect on load
 	const [mostReccent, setMostReccent] = useState({});
 	useEffect(() => {
 		console.log(localStorage.getItem("Authentication"));
-		setUser(JSON.parse(localStorage.getItem("Authentication")));
+		setJwt(JSON.parse(localStorage.getItem("Authentication")));
+		setUser(localStorage.getItem("username"));
 	}, []);
 
 	return (
 		<div className="background">
-			<Header size="short" text={`Welcome ${user.username} `} />
+			{jwt === null && <Navigate to="/" replace={true} />}
+			<Header size="short" text={`Welcome ${user} `} />
 			<NavBar />
 			<div className="upcomming-work">
 				<h1 className="gray-heading">Upcoming Work:</h1>
@@ -24,24 +27,25 @@ function DashboardPage() {
 			</div>
 			<div className="lower-content">
 				<div className="most-recent-task-card--wrapper">
-				<h1 className="gray-heading">Most Recent Task</h1>
-				<div className="most-recent-task-card--container">
-					<h2 className="whiteText medium-text" style={{marginBottom  :"12px"}}>Task name here</h2>
-					<h3 className="whiteText small-text">Preventative Maintance</h3>
-					<h3 className="whiteText small-text">Progress</h3>
-					<></>
-					<h3 className="whiteText small-text"> Go To </h3>
-					<svg></svg>
+					<h1 className="gray-heading">Most Recent Task</h1>
+					<div className="most-recent-task-card--container">
+						<h2
+							className="whiteText medium-text"
+							style={{marginBottom: "12px"}}>
+							Task name here
+						</h2>
+						<h3 className="whiteText small-text">Preventative Maintance</h3>
+						<h3 className="whiteText small-text">Progress</h3>
+						<></>
+						<h3 className="whiteText small-text"> Go To </h3>
+						<svg></svg>
+					</div>
+				</div>
+				<div className="messages--wrapper">
+					<h1 className="gray-heading">Messages</h1>
+					<div className="messages--container"></div>
 				</div>
 			</div>
-			<div className="messages--wrapper">
-				<h1 className="gray-heading">Messages</h1>
-				<div className="messages--container">
-
-				</div>
-			</div>
-			</div>
-			
 		</div>
 	);
 }

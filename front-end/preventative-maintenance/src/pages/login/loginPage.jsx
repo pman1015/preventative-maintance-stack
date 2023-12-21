@@ -18,6 +18,7 @@ function LoginPage(){
         console.log('Success');
         console.log(responseData);
         localStorage.setItem("Authentication",JSON.stringify(responseData.data));
+        localStorage.setItem("username",inputData.username);
        
     }else if(responseData.status !== undefined){
         console.log('Error');

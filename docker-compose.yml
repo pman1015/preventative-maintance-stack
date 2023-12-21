@@ -1,0 +1,11 @@
+version: "3"
+services:
+  maintance-api:
+    container_name: maintance-api
+    build:
+      context: back-end/maintanceAPI
+      dockerfile: Dockerfile
+    image: maintance-api:latest
+    ports:
+      - 8080:8080
+    restart: on-failure

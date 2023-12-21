@@ -4,8 +4,6 @@ import com.maintance.maintanceAPI.model.User;
 import com.maintance.maintanceAPI.repository.userRepository;
 import jakarta.validation.constraints.Pattern;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import lombok.Data;
 import lombok.Getter;
@@ -16,11 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Validator;
 
 @Service
 public class userServices {
+  @Autowired
+  PasswordEncoder passwordEncoder;
 
   @Data
   public class ResponsePair {
@@ -57,6 +58,7 @@ public class userServices {
   public ResponsePair addUser(User user) {
     ResponsePair responsePair = new ResponsePair();
     try {
+      user.setPassword(passwordEncoder.encode(user.getPassword()));
       responsePair.setUser(userRepository.save(user));
       responsePair.setStatus(HttpStatus.CREATED);
       return responsePair;
@@ -78,14 +80,14 @@ public class userServices {
   public ResponsePair getUser(User user) {
     ResponsePair response = new ResponsePair();
     try {
-      List<User> result = userRepository.findByUsername(user.getUsername());
+      Optional<User> result = userRepository.findByUsername(user.getUsername());
 
       if (result.isEmpty()) {
         response.setStatus(HttpStatus.NOT_FOUND);
         response.setMessage("Username not found");
         return response;
       }
-      User found = result.get(0);
+      User found = result.get();
       if (!found.getPassword().equals(user.getPassword())) {
         response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION);
         response.setMessage("Password invalid");

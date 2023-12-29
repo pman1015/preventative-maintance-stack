@@ -1,0 +1,137 @@
+body {
+    top: -50px;
+    position: absolute;
+}
+
+.BackgroundDesktop {
+    background-color: #9EB599;
+    height: calc( 100vh + 50px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginCardDesktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 520px;
+    height: 539px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: #FFF;
+    box-shadow: 8px 8px 40px 0px rgba(135, 178, 126, 0.77), 4px 4px 4px 0px rgba(126, 183, 114, 0.79);
+}
+
+.loginContainerDesktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 406px;
+    height: 326px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #F0EEEE;
+    box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
+}
+
+.loginContainerDesktop .textFieldDesktop {
+    width: 272px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-top: 12px;
+}
+
+.textFieldDesktop {
+    border-radius: 8px;
+    background: #EBEBEB;
+    box-shadow: 3px 3px 11.6px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+input[type="text"].textFieldDesktop {
+    color: #000;
+    text-align: center;
+    font-family: Julius Sans One;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+input[type="password"].textFieldDesktop {
+    color: #000;
+    text-align: center;
+    font-family: Julius Sans One;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.loginContainerDesktop .lightHeadingDesktop {
+    width: 340px;
+    height: 77px;
+    flex-shrink: 0;
+    margin-bottom: 32px;
+}
+
+.lightHeadingDesktop {
+    color: rgba(55, 55, 55, 0.98);
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.loginButtonDesktop {
+    position: relative;
+    width: 234px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #224325;
+    box-shadow: 4px 4px 8px 0px #B9B3B3;
+    right: 117px;
+    top: 64px;
+    border: none;
+}
+
+.loginButtonTextDesktop {
+    color: #FFF;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0px;
+}
+
+.loginButtonDesktop:hover {
+    background: #3c663f;
+}
+
+.logo {
+    margin: 25px auto -32px 14px;
+}
+
+.helpButtonDesktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: none;
+    top: 23px;
+    left: 204px;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #224325;
+    box-shadow: 4px 4px 8px 0px #B9B3B3;
+}
+
+.helpButtonDesktop:hover {
+    background: #3c663f;
+}

@@ -48,10 +48,10 @@ public class SecurityConfig {
           .permitAll()
       )
       .authorizeHttpRequests(requestHandler ->
-        requestHandler.requestMatchers("/userAPI/user/**").authenticated()
+        requestHandler.requestMatchers("*/user/**").authenticated()
       )
       .authorizeHttpRequests(requestHandler ->
-        requestHandler.requestMatchers("/userAPI/admin/**").authenticated()
+        requestHandler.requestMatchers("*/admin/**").authenticated()
       )
       .sessionManagement(sessionManagement ->
         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -1,0 +1,178 @@
+                .DesktopCard {
+                    border-radius: 12px;
+                    background: #F0EEEE;
+                    box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
+                    display: flex;
+                    flex-direction: column;
+                    padding: 8px;
+                    margin: 16px;
+                }
+                
+                .lightDesktopSubHeading {
+                    color: #565656;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin: 0px;
+                }
+                
+                .darkDesktopHeading {
+                    color: #000;
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin: 0px;
+                }
+                
+                .darkDesktopMediumText {
+                    color: #000;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin: 0px;
+                }
+                
+                .desktopTextButton {
+                    position: relative;
+                    top: 0px;
+                    width: fit-content;
+                    border: none;
+                }
+                
+                .desktopTextButton p {
+                    color: #000;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    margin: 0px;
+                }
+                
+                .desktopTextButton:hover {
+                    background-color: #8b89892e;
+                    border-radius: 16px;
+                }
+                
+                .warningCard {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                    width: 286px;
+                    height: 24px;
+                    margin: 6px;
+                    direction: ltr;
+                }
+                
+                .warningCard h1 {
+                    margin-right: 8px;
+                }
+                
+                .scrollPane {
+                    direction: rtl;
+                    overflow-y: scroll;
+                    background-color: #E8E8E8;
+                    border-radius: 24px;
+                    height: 100%;
+                }
+                
+                .scrollPane::-webkit-scrollbar {
+                    width: 16px;
+                }
+                
+                .scrollPane::-webkit-scrollbar-track {
+                    background-color: #CECECE;
+                    border-left: 6px solid #E8E8E8;
+                    ;
+                    border-right: 6px solid #E8E8E8;
+                    ;
+                    border-radius: 12px;
+                }
+                
+                .scrollPane::-webkit-scrollbar-thumb {
+                    width: 16px;
+                    height: 45px;
+                    flex-shrink: 0;
+                    border-radius: 30px;
+                    background: #D9D9D9;
+                    box-shadow: 0px 2px 3.2px 0px rgba(0, 0, 0, 0.25);
+                }
+                
+                .scrollPane ul {
+                    list-style: none;
+                }
+                
+                .equipmentCard {
+                    padding: 12px;
+                    padding-top: 20px;
+                }
+                
+                .statCard {
+                    position: absolute;
+                    width: 440px;
+                    top: 116px;
+                    height: 366px;
+                    flex-shrink: 0;
+                    border-radius: 8px;
+                    background: #DCDCDC;
+                    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.25);
+                    padding: 16px 0px 0px 16px;
+                }
+                
+                .statList {
+                    display: flex;
+                    height: 338px;
+                }
+                
+                .statList ul {
+                    list-style: none;
+                }
+                
+                .statList .itemNameList {
+                    width: 129px;
+                    height: 100%;
+                    flex-shrink: 0;
+                    border-radius: 0px 0px 0px 8px;
+                }
+                
+                .statList ul {
+                    padding-inline-start: 0px;
+                }
+                
+                .statList li {
+                    margin-bottom: 12px;
+                }
+                
+                .statList .itemNameList li {
+                    height: 24px;
+                    margin-left: -8px;
+                    width: 128px;
+                }
+                
+                .statList .itemGraph {
+                    height: 100%;
+                    border-radius: 8px;
+                    width: 100%;
+                    background: #E8E8E8;
+                    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.25);
+                }
+                
+                .statList .itemGraph li {
+                    text-align: right;
+                    height: 24px;
+                    border-radius: 0px 8px 8px 0px;
+                    background: linear-gradient(270deg, #67985C 0%, #97D4A8 51.46%, #56D691 100%);
+                    box-shadow: 4px 2px 7.4px 0px rgba(0, 0, 0, 0.25);
+                }
+                
+                .statList .itemGraph li,
+                p {
+                    padding-right: 12px;
+                    color: #FFFBFB;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: normal;
+                }

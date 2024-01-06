@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState,useEffect } from 'react';
-import {Navigate} from 'react-router-dom';
-import LogoHeader from '../../logoHeader';
-import DesktopSideNavigation from '../navbar/DesktopSideNav';
-import "./DesktopContainer.css"
-
+import React, {useEffect, useState} from "react";
+import {Navigate, useNavigate} from "react-router-dom";
+import LogoHeader from "../../logoHeader";
+import DesktopSideNavigation from "../navbar/DesktopSideNav";
+import "./DesktopContainer.css";
 
 function DesktopContainer(props) {
 	const [user, setUser] = useState({});
@@ -17,6 +15,7 @@ function DesktopContainer(props) {
 		setUser(localStorage.getItem("username"));
 	}, []);
 
+	const navigate = useNavigate();
 	return (
 		<div className="BackgroundDesktop">
 			{jwt === null && <Navigate to="/" replace={true} />}
@@ -24,7 +23,12 @@ function DesktopContainer(props) {
 				<div className="DesktopHeader">
 					<LogoHeader />
 					<div className="DesktopHeaderNavigation">
-						<button>Home</button>
+						<button
+							onClick={() => {
+								navigate("/dashboard");
+							}}>
+							Home
+						</button>
 						<button>Account</button>
 						<button>Help</button>
 						<button>
@@ -45,10 +49,7 @@ function DesktopContainer(props) {
 				<div className="SideNavigationDesktop">
 					<DesktopSideNavigation />
 				</div>
-				<div className='DesktopCenterContent'>
-					{props.content}
-				</div>
-				
+				<div className="DesktopCenterContent">{props.content}</div>
 			</div>
 		</div>
 	);

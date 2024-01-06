@@ -1,10 +1,14 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 import "./Navbar.css";
 
 function DesktopSideNavigation() {
+
+	const navigate = useNavigate();
 	return (
 		<div className="sideNavContainer">
 			<button>
+			{/*buildings button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="48"
@@ -21,6 +25,7 @@ function DesktopSideNavigation() {
 				</svg>
 			</button>
 			<button>
+				{/* calander button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="49"
@@ -36,7 +41,12 @@ function DesktopSideNavigation() {
 					/>
 				</svg>
 			</button>
-			<button>
+			<button
+			onClick={()=>{
+				navigate("/equipment")
+			}}
+				>
+				{/*equipment button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="48"
@@ -53,6 +63,7 @@ function DesktopSideNavigation() {
 				</svg>
 			</button>
 			<button>
+				{/*users button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="48"

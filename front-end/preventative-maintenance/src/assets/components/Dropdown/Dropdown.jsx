@@ -32,10 +32,24 @@ function DropDown(props) {
 			console.log(e);
 		}
 	};
-
+	const [propDimentions, setPropDimentions] = useState({width: "280px"});
+	const [menuProps, setMenuProps] = useState();
+	useEffect(() => {
+		try {
+			console.log(props.width);
+			const width = props.width;
+			const height = props.height;
+			setMenuProps({top: "-" + 1.5 * height + "px", width: width - 35 + "px"});
+			setPropDimentions({width: width + "px", height: height + "px"});
+		} catch (e) {}
+	}, [props]);
+	useEffect(() => {
+		console.log(propDimentions);
+		console.log(menuProps);
+	}, [propDimentions]);
 	return (
-		<>
-			<div className={"dropdown-container " + menuState}>
+		<div>
+			<div style={propDimentions} className={"dropdown-container " + menuState}>
 				<h1 className="selected-Text">{selected}</h1>
 				<button
 					className="dropdown-Button"
@@ -49,16 +63,20 @@ function DropDown(props) {
 			{!expanded ? (
 				<></>
 			) : (
-				<div className="dropdown-menu ">
-					<ul className="dropdown-options">
+				<div className="dropdown-menu " style={menuProps}>
+					<ul
+						style={{paddingTop: 0.75 * props.height + "px"}}
+						className="dropdown-options">
 						{options.map((entry) => (
 							<li
 								onClick={(event) => {
 									setSelected(entry);
 									setExpanded(!expanded);
-                                    try{
-                                        props.onSelect(entry);
-                                    }catch(e) {console.log(e);}
+									try {
+										props.onSelect(entry);
+									} catch (e) {
+										console.log(e);
+									}
 								}}>
 								{entry}
 							</li>
@@ -66,7 +84,7 @@ function DropDown(props) {
 					</ul>
 				</div>
 			)}
-		</>
+		</div>
 	);
 }
 export default DropDown;

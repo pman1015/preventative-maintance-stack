@@ -1,7 +1,6 @@
 .dropdown-container {
     position: relative;
     z-index: 4;
-    width: 280px;
     display: flex;
     padding-left: 8px;
     height: 37px;
@@ -26,9 +25,10 @@
 }
 
 .dropdown-Button {
+    z-index: 10;
     filter: drop-shadow(-2px 0px 7.2px #CECECE);
     width: 35px;
-    height: 35px;
+    height: 100%;
     border-radius: 0px 12px 12px 0px;
     border: none;
     background: #DEDEDE;
@@ -37,17 +37,20 @@
     align-items: center;
 }
 
+.dropdown-Button:hover {
+    background: #ede8e8;
+}
+
 .dropdown-menu {
+    margin-top: 24px;
     z-index: 1;
-    padding-top: 28px;
     min-height: 48px;
     height: fit-content;
     max-height: 243px;
-    width: 254px;
+    width: calc(100% - 35px);
     border-radius: 12px 0px 12px 12px;
     background-color: #C5C5C5;
     position: relative;
-    top: -36px;
 }
 
 .dropdown-menu ul {

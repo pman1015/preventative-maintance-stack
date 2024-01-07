@@ -124,7 +124,12 @@ const EquipmentStatsCard = (props) => {
 	return (
 		<div className="equipmentCard">
 			<h1 className="lightDesktopSubHeading"> Equipment in the field </h1>
-			<DropDown options={props.options} onSelect={updateSelect} />
+			<DropDown
+				options={props.options}
+				onSelect={updateSelect}
+				width="278"
+				height="35"
+			/>
 			<div className="statCard">
 				<h1 className="lightDesktopSubHeading">Model</h1>
 				<div className="statList">

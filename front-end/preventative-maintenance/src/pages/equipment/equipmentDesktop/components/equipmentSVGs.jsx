@@ -249,3 +249,55 @@ export const searchBarSVG = () => {
 		</svg>
 	);
 };
+
+export const aToZSVG = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="16"
+			height="16"
+			viewBox="0 0 16 15"
+			fill="none">
+			<path
+				d="M1 10.75L4.29412 14M4.29412 14L7.58824 10.75M4.29412 14V1M15 4.25H10.8824M10.8824 5.875V3.03125C10.8824 2.49253 11.0993 1.97587 11.4854 1.59494C11.8715 1.21401 12.3951 1 12.9412 1C13.4872 1 14.0109 1.21401 14.397 1.59494C14.7831 1.97587 15 2.49253 15 3.03125V5.875M10.8824 9.125H15L10.8824 14H15"
+				stroke="black"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	);
+};
+export const zToASVG = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="16"
+			height="15"
+			viewBox="0 0 16 15"
+			fill="none">
+			<path
+				d="M1 4.25L4.29412 1M4.29412 1L7.58824 4.25M4.29412 1V14M10.8824 1H15L10.8824 5.875H15M10.8824 14V11.1562C10.8824 10.6175 11.0993 10.1009 11.4854 9.71994C11.8715 9.33901 12.3951 9.125 12.9412 9.125C13.4872 9.125 14.0109 9.33901 14.397 9.71994C14.7831 10.1009 15 10.6175 15 11.1562V14M15 12.375H10.8824"
+				stroke="black"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	);
+};
+export const barSVG = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="16"
+			height="2"
+			viewBox="0 0 16 2"
+			fill="none">
+			<path
+				d="M1 1H15"
+				stroke="black"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	);
+};

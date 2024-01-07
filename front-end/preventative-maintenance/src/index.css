@@ -9,6 +9,18 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+#auto {
+    cursor: auto;
+}
+
+#pointer {
+    cursor: pointer;
+}
+
+#default {
+    cursor: default;
+}
+
 @font-face {
     font-family: "Julius Sans One";
     src: local('JuliusSans'), url("./assets/fonts/JuliusSansOne-Regular.ttf");

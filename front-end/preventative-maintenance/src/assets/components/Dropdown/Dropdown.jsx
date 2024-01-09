@@ -5,6 +5,7 @@ function DropDown(props) {
 	const [menuState, setMenuState] = useState("");
 	const [selected, setSelected] = useState("selectedText");
 	const [options, setOptions] = useState([]);
+	const [textSize, setTextSize] = useState({});
 
 	const test = ["1", "test2", "test3", "test4"];
 
@@ -36,21 +37,27 @@ function DropDown(props) {
 	const [menuProps, setMenuProps] = useState();
 	useEffect(() => {
 		try {
+			setSelected(props.selected);
+			props.onSelect(props.selected);
+		} catch (e) {}
+	}, [props.selected]);
+	useEffect(() => {
+		try {
 			console.log(props.width);
 			const width = props.width;
 			const height = props.height;
-			setMenuProps({top: "-" + 1.5 * height + "px", width: width - 35 + "px"});
+			setTextSize({fontSize: height - 8 + "px"});
+			setMenuProps({width: width - 35 + "px"});
 			setPropDimentions({width: width + "px", height: height + "px"});
 		} catch (e) {}
 	}, [props]);
-	useEffect(() => {
-		console.log(propDimentions);
-		console.log(menuProps);
-	}, [propDimentions]);
+
 	return (
-		<div>
+		<div style={propDimentions}>
 			<div style={propDimentions} className={"dropdown-container " + menuState}>
-				<h1 className="selected-Text">{selected}</h1>
+				<h1 className="selected-Text" style={textSize}>
+					{selected}
+				</h1>
 				<button
 					className="dropdown-Button"
 					onClick={(event) => {

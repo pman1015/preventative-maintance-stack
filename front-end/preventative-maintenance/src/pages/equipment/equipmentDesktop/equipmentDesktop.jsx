@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import DesktopContainer from "../../../assets/components/DesktopContainer/DesktopMainContainer";
-import EquipmentControlMenu from "./components/EquipmentControlMenu";
-import EquipmentInventory from "./components/EquipmentInventory";
-import EquipmentSearchBar from "./components/EquipmentSearchBar";
-import * as svgs from "./components/equipmentSVGs";
+import EquipmentControlMenu from "../components/EquipmentControlMenu";
+import EquipmentInventory from "../components/EquipmentInventory";
+import EquipmentSearchBar from "../components/EquipmentSearchBar";
+import * as svgs from "../components/equipmentSVGs";
 import "./equipmentDesktop.css";
 function EquipmentDesktop() {
 	return (

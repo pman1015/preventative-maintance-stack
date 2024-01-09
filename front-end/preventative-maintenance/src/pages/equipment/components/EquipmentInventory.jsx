@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import DropDown from "../../../../assets/components/Dropdown/Dropdown";
+import DropDown from "../../../assets/components/Dropdown/Dropdown";
 import * as svgs from "./equipmentSVGs";
 
 function EquipmentInventory() {
@@ -11,7 +11,7 @@ function EquipmentInventory() {
 	];
 	const [activeSort, setActiveSort] = useState({label: "", state: ""});
 	//Sample data to return from a DB call
-	const inventory = require("../../../../assets/testData/equipmentData.json");
+	const inventory = require("../../../assets/testData/equipmentData.json");
 	return (
 		<div className="equipment_page_inventory_container">
 			<div className="equipment_page_inventory_header">
@@ -80,11 +80,53 @@ const EquipmentSortCard = (label, activeSort, setActiveSort) => {
 };
 
 const EquipmentInventoryCard = (item) => {
+	const setExpandedType = (item) => {
+		switch (item.type) {
+			case "projector":
+				return loadProjectorInfo(item);
+			case "processor":
+				return loadProcessorInfo(item);
+		}
+	};
 	const expanded_card = (item) => {
 		return (
 			<div className="equipment_page_inventory_expanded">
-				{loadProjectorInfo()}
+				{setExpandedType(item)}
 			</div>
+		);
+	};
+	const loadProcessorInfo = () => {
+		const equipment = {sunyTag: "someNumberHere"};
+		const query_result = {
+			program_name: "Standard DMPS 100",
+			program_version: "1.0",
+			available_versions: ["1.0", "1.1", "1.2", "1.3"],
+		};
+
+		return (
+			<>
+				<div className="equipment_card_column">
+					<h1>Program Name: {query_result.program_name}</h1>
+					<h1>Program Version: {query_result.program_version}</h1>
+					<div style={{display: "flex", alignItems: "flex-start"}}>
+						<h1>Available Version: </h1>
+						
+							<DropDown
+								options={query_result.available_versions}
+								width="120"
+								height="20"
+								selected={query_result.program_version}
+							/>
+						
+					</div>
+					<button onClick={() => {}}>
+						<h1>Program Details</h1>
+					</button>
+				</div>
+				<div className="equipment_card_column">
+					<h1>SUNY Tag: {equipment.sunyTag}</h1>
+				</div>
+			</>
 		);
 	};
 	const loadProjectorInfo = () => {
@@ -118,11 +160,12 @@ const EquipmentInventoryCard = (item) => {
 				<div className="equipment_card_column">
 					<div style={{display: "flex", alignItems: "flex-start"}}>
 						<h1>Available Resolutions</h1>
-						<div style={{position: "absolute", right: "170px", top: "70px"}}>
+						<div style={{position: "relative", height: "24px"}}>
 							<DropDown
 								options={query_result.availableResoultions}
 								width="120"
-								height="24"
+								height="20"
+								selected={query_result.currentResolution}
 							/>
 						</div>
 					</div>

@@ -186,10 +186,10 @@
     }
     
     .equipment_page_inventory_header {
-        margin-top: 12px;
+        margin-left: 32px;
+        margin-top: 14px;
         display: flex;
         justify-content: space-between;
-        margin-left: 78px;
         width: 814px;
         height: 43px;
         flex-shrink: 0;

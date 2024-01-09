@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import DropDown from "../../../assets/components/Dropdown/Dropdown";
+import ScrollPane from "../../../assets/components/ScrollPane/ScrollPane";
 import * as svgs from "./equipmentSVGs";
 
 function EquipmentInventory() {
@@ -12,16 +13,45 @@ function EquipmentInventory() {
 	const [activeSort, setActiveSort] = useState({label: "", state: ""});
 	//Sample data to return from a DB call
 	const inventory = require("../../../assets/testData/equipmentData.json");
+	const loadHeader = (
+		<div className="equipment_page_inventory_header">
+			{headerLabels.map((item) =>
+				EquipmentSortCard(item, activeSort, setActiveSort)
+			)}
+		</div>
+	);
+	const [cards, setCards] = useState([]);
+	useEffect(() => {
+		let cardsToAdd = [];
+		inventory.items.forEach((item) => {
+			cardsToAdd.push(<EquipmentInventoryCard item={item} />);
+		});
+		setCards(cardsToAdd);
+	}, []);
+
 	return (
-		<div className="equipment_page_inventory_container">
-			<div className="equipment_page_inventory_header">
-				{headerLabels.map((item) =>
-					EquipmentSortCard(item, activeSort, setActiveSort)
-				)}
-			</div>
-			<div className="equipment_page_inventory_scrollpane">
-				{inventory.items.map((item) => EquipmentInventoryCard(item))}
-			</div>
+		<>
+			<ScrollPane
+				width="910"
+				height="457"
+				header={
+					<EquipmentSortHeader
+						headerLabels={headerLabels}
+						activeSort={activeSort}
+						setActiveSort={setActiveSort}
+					/>
+				}
+				cards={cards}
+			/>
+		</>
+	);
+}
+function EquipmentSortHeader(props) {
+	return (
+		<div className="equipment_page_inventory_header">
+			{props.headerLabels.map((item) =>
+				EquipmentSortCard(item, props.activeSort, props.setActiveSort)
+			)}
 		</div>
 	);
 }
@@ -79,7 +109,8 @@ const EquipmentSortCard = (label, activeSort, setActiveSort) => {
 	);
 };
 
-const EquipmentInventoryCard = (item) => {
+function EquipmentInventoryCard({item}) {
+	console.log(item);
 	const setExpandedType = (item) => {
 		switch (item.type) {
 			case "projector":
@@ -110,14 +141,13 @@ const EquipmentInventoryCard = (item) => {
 					<h1>Program Version: {query_result.program_version}</h1>
 					<div style={{display: "flex", alignItems: "flex-start"}}>
 						<h1>Available Version: </h1>
-						
-							<DropDown
-								options={query_result.available_versions}
-								width="120"
-								height="20"
-								selected={query_result.program_version}
-							/>
-						
+
+						<DropDown
+							options={query_result.available_versions}
+							width="120"
+							height="20"
+							selected={query_result.program_version}
+						/>
 					</div>
 					<button onClick={() => {}}>
 						<h1>Program Details</h1>
@@ -195,6 +225,6 @@ const EquipmentInventoryCard = (item) => {
 			{expanded ? expanded_card(item) : <></>}
 		</div>
 	);
-};
+}
 
 export default EquipmentInventory;

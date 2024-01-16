@@ -110,7 +110,6 @@ const EquipmentSortCard = (label, activeSort, setActiveSort) => {
 };
 
 function EquipmentInventoryCard({item}) {
-	console.log(item);
 	const setExpandedType = (item) => {
 		switch (item.type) {
 			case "projector":

@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path":"../src/pages/equipment"
+        },
+        {
+            "path":"../src/assets/testData"
+        },
+        {
+            "path":"../src/assets/components"
+        },
+
+    ]
+}

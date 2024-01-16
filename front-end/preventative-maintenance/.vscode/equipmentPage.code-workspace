@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "name":"page",
+            "path":"../src/pages/equipment"
+        },
+        {
+            "name":"components",
+            "path":"../src/assets/components"
+        },
+        {
+            "name":"testData",
+            "path":"../src/assets/testData"
+        },{
+            "name":"utilities",
+            "path":"../src/util"
+        }
+       
+
+    ],
+    "files":[
+        "../src/index.jsx"
+    ]
+}

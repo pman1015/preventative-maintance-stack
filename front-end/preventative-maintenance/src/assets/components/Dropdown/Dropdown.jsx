@@ -1,6 +1,19 @@
 import {useEffect, useState} from "react";
 import "./Dropdown.css";
+
+//----------------------------------------------------------------
+// DropDown component is used to display and select from a list of options
+// this functuin takes in the following options
+//	(Required) options -> a list of text options
+//	(optional) selected -> the inital value to display as selected
+//	(optional) onSelect -> a function that will recieve the selected value on selection
+//	(optional) height -> the height of the dropdown container
+//	(optional) width -> the width of the dropdown containeer
+//----------------------------------------------------------------
 function DropDown(props) {
+	//----------------------------------------------------------------
+	// expaned: boolean if the dropdown is expanded
+	//----------------------------------------------------------------
 	const [expanded, setExpanded] = useState(false);
 	const [menuState, setMenuState] = useState("");
 	const [selected, setSelected] = useState("selectedText");
@@ -95,6 +108,10 @@ function DropDown(props) {
 	);
 }
 export default DropDown;
+
+//----------------------------------------------------------------
+//Cheverons are the svg's that display on the dropdown button
+//----------------------------------------------------------------
 
 const downChevron = (
 	<svg

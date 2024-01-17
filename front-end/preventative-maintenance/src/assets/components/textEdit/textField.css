@@ -1,0 +1,10 @@
+.text-input {
+    background-color: rgba(255, 255, 255, 0.249);
+    /* Adjust the alpha value for transparency */
+    border: 1px solid #0000001c;
+    border-radius: 8px;
+    /* Add border for better visibility */
+    padding: 2px;
+    color: #333;
+    /* Set text color */
+}

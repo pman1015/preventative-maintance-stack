@@ -56,7 +56,6 @@ function DropDown(props) {
 	}, [props.selected]);
 	useEffect(() => {
 		try {
-			console.log(props.width);
 			const width = props.width;
 			const height = props.height;
 			setTextSize({fontSize: height - 8 + "px"});

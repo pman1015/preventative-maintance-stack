@@ -119,6 +119,7 @@
     }
     
     .program_details_edit_btn {
+        z-index: 10;
         position: relative;
         left: calc( 100% - 36px);
         top: 4px;
@@ -130,6 +131,10 @@
         background: #224325;
         box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
         border: none;
+    }
+    
+    .program_details_edit_btn:hover {
+        background: #3c7741;
     }
     
     .program_details_header {

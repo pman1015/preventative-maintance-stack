@@ -1,23 +1,50 @@
 import {useEffect, useState} from "react";
+import "./textField.css";
+function TextField({
+	isEditable,
+	cachedChanges,
+	setCachedChanges,
+	updateCache,
+	name,
+	styleClass,
+}) {
+	const [textValue, setTextValue] = useState("");
 
-function TextField({value, setValue, styleClass}) {
-	const {fieldState, setFieldState} = useState(false);
+	useEffect(() => {
+		console.log("fieldChange: " + cachedChanges);
+		if (typeof cachedChanges.values === "undefined") return;
+		for (let i = 0; i < cachedChanges.values.length; i++) {
+			let item = cachedChanges.values[i];
+			if (item.name === name) {
+				console.log("value: "+ item.value)
+				setTextValue(item.value);
+				break;
+			}
+		}
+	}, [cachedChanges, setCachedChanges]);
+	useEffect(() => {
+		console.log("edit In textField updated: " + isEditable);
+	}, [isEditable]);
+
 	return (
 		<>
-			{fieldState ? (
+			{isEditable ? (
 				<div className="text-field">
 					<input
+						className="text-input"
 						type="text"
-						value={value}
-						onChange={(e) => setValue(e.target.value)}
+						value={textValue}
+						onChange={(e) => {
+							updateCache(name, e.target.value);
+							
+						}}
 					/>
 				</div>
 			) : (
-				<>
-					<h1 className={styleClass}>{value}</h1>
-				</>
+				<h2 className={styleClass}>{textValue}</h2>
 			)}
 		</>
 	);
 }
+
 export default TextField;

@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react";
 import DropDown from "../../../../assets/components/Dropdown/Dropdown";
 import InputForm from "../../../../assets/components/form/form";
+import TextBox from "../../../../assets/components/textBox/textBox";
 import {getProgramDetails} from "../../../../util/equipmentQueries";
 import * as svgs from "../../components/equipmentSVGs";
+import AddNewDevice from "./addDevice";
+import ChangeLog from "./changeLog";
 
 //----------------------------------------------------------------
 //Program details take in a program name
@@ -23,6 +26,10 @@ function ProgramDetails({name}) {
 	const [programVersions, setProgramVersions] = useState([]);
 	const [isEditable, setIsEditable] = useState(false);
 	const [initialStates, setInitialStates] = useState({});
+	const [notesCache, setNotesCache] = useState({value: ""});
+	const [changeLog, setChangeLog] = useState({});
+	const [showAddDevice, setShowAddDevice] = useState(false);
+	const [selectedVersion, setSelectedVersion] = useState("");
 
 	//----------------------------------------------------------------
 	//useEffect uses an API call whenever the prgram name changes
@@ -32,9 +39,25 @@ function ProgramDetails({name}) {
 		if (query_result.status !== 200) return;
 
 		setProgramVersions(query_result.versions);
-		setProgramQuery(query_result.version_detais);
+		setProgramQuery(query_result.version_details);
+		setNotesCache({value: query_result.program_notes});
+		generateChangeLog(query_result);
 	}, [name]);
 
+	//----------------------------------------------------------------
+	//generates the changelog based on the api response
+	//----------------------------------------------------------------
+	function generateChangeLog(query_result) {
+		var tempChangeLogs = [];
+		query_result.version_details.forEach((versionDetails) => {
+			tempChangeLogs.push({
+				programVersions: versionDetails.version_number,
+				changes: versionDetails.change_notes,
+			});
+		});
+		console.log("log: " + tempChangeLogs);
+		setChangeLog({versions: tempChangeLogs});
+	}
 	//---------------------------------------------------------------
 	//load verion function takes the selected program version
 	//and loads the appropriate devices for the program version
@@ -46,6 +69,7 @@ function ProgramDetails({name}) {
 			if (version.version_number === selectedVersion) {
 				setCachedDevices({devices: []});
 				loadDevices(version);
+				setSelectedVersion(selectedVersion);
 			}
 		});
 	};
@@ -70,6 +94,7 @@ function ProgramDetails({name}) {
 	//by the DropDown
 	//---------------------------------------------------------------
 	const [selectedDevice, setSelectedDevice] = useState({});
+	const [selectedDeviceName, setSelectedDeviceName]= useState("");
 	const selectDevice = (selected) => {
 		devices.forEach((device) => {
 			if (device.name === selected) {
@@ -82,10 +107,12 @@ function ProgramDetails({name}) {
 	};
 
 	//---------------------------------------------------------------
-	//This use effect will detect an update to the selected device and
-	//update the form to be loaded accordingly.
+	//This function initalizes the cache for the selected device
+	//The testForm object stores a list of fields that will be added to
+	//the form
+	//Return: (cache: "Default cache based on the API call for the selected device")
+	//  	  (initialData: "The structure for the form to be layed out in")
 	//---------------------------------------------------------------
-	const [form, setForm] = useState(<></>);
 	const [cachedChanges, setCachedChanges] = useState({});
 	const [cachedDevices, setCachedDevices] = useState({devices: []});
 
@@ -123,7 +150,11 @@ function ProgramDetails({name}) {
 			initialData: testForm,
 		};
 	}
-
+	//----------------------------------------------------------------
+	//This useEffect listenes for a change in the selected device and
+	//and sets the form fields to default and loads or sets a blank
+	//cache
+	//----------------------------------------------------------------
 	useEffect(() => {
 		var startData = initalizeCacheForDevice();
 		loadCachedChanges(selectedDevice.name, startData.cache);
@@ -176,62 +207,89 @@ function ProgramDetails({name}) {
 	}
 
 	//----------------------------------------------------------------
-	//Test Section
-	//
+	//Toggles the editable state based on the button press
 	//----------------------------------------------------------------
 	const toggleEdit = () => {
 		setIsEditable(!isEditable);
 	};
-	useEffect(() => {
-		console.log("Program details edit: " + isEditable);
-	}, [isEditable]);
+	
 	return (
-		<div className="program_details_container">
-			<button className="program_details_edit_btn" onClick={toggleEdit}>
-				{svgs.pencilSVG()}
-			</button>
-			<div className="program_details_header">
-				<h1 className="lightDesktopSubHeading">Program Info</h1>
-				<h2 className="DesktopSubHeading">Program Name: {name}</h2>
-				<div
-					className="inline_content"
-					style={{zIndex: "12", position: "relative"}}>
-					<h2 className="DesktopSubHeading"> Versions</h2>
-					<DropDown
-						width="145"
-						height="24"
-						selected="version"
-						onSelect={loadVersion}
-						options={programVersions}
-					/>
+		<>
+			{showAddDevice && (
+				<AddNewDevice
+					setVisibility={setShowAddDevice}
+					deviceList={deviceList}
+					setDeviceList={setDeviceList}
+					devices = {devices}
+					setDevices={setDevices}
+					setSelectedDevice={setSelectedDevice}
+					setSelectedDeviceName = {setSelectedDeviceName}
+				/>
+			)}
+			<div className="program_details_container">
+				<button className="program_details_edit_btn" onClick={toggleEdit}>
+					{isEditable ? svgs.saveSVG() : svgs.pencilSVG()}
+				</button>
+				<div className="program_details_header">
+					<h1 className="lightDesktopSubHeading">Program Info</h1>
+					<h2 className="DesktopSubHeading">Program Name: {name}</h2>
+					<div
+						className="inline_content"
+						style={{zIndex: "12", position: "relative"}}>
+						<h2 className="DesktopSubHeading"> Versions</h2>
+						<DropDown
+							width="145"
+							height="24"
+							selected={selectedVersion}
+							onSelect={loadVersion}
+							options={programVersions}
+						/>
+					</div>
 				</div>
+				{selectedVersion !== "" && (
+					<>
+						<div className="inline_content">
+							<h1 className="lightDesktopSubHeading">Details</h1>
+							<button
+								className="text_button"
+								onClick={() => {
+									setShowAddDevice(!showAddDevice);
+								}}>
+								<h2>Add New Device</h2>
+							</button>
+						</div>
+
+						<div className="program_details_detailsSection">
+							<div className="inline_content">
+								<h2 className="DesktopSubHeading">Devices In Program</h2>
+								<DropDown
+									width="145"
+									height="24"
+									selected={selectedDeviceName}
+									options={deviceList}
+									onSelect={selectDevice}
+								/>
+							</div>
+							<div className="program_details_device_details_container">
+								<InputForm
+									initialStates={initialStates}
+									isEditable={isEditable}
+									cachedChanges={cachedChanges}
+									setCachedChanges={setCachedChanges}
+								/>
+							</div>
+						</div>
+						<TextBox
+							label="Program Notes: "
+							cache={notesCache}
+							setCache={setNotesCache}
+							editable={isEditable}
+						/>
+					</>
+				)}
 			</div>
-			<h1 className="lightDesktopSubHeading">Details</h1>
-			<div className="program_details_detailsSection">
-				<div className="inline_content">
-					<h2 className="DesktopSubHeading">Devices In Program</h2>
-					<DropDown
-						width="145"
-						height="24"
-						selected="Device Name"
-						options={deviceList}
-						onSelect={selectDevice}
-					/>
-				</div>
-				<div className="program_details_device_details_container">
-					<InputForm
-						initialStates={initialStates}
-						isEditable={isEditable}
-						cachedChanges={cachedChanges}
-						setCachedChanges={setCachedChanges}
-					/>
-				</div>
-			</div>
-			<div className="program_details_program_notes">
-				<h1>Program Notes:</h1>
-				<div className="program_details_program_notes_container"></div>
-			</div>
-		</div>
+			<ChangeLog setChangeLog={setChangeLog} changeLog={changeLog} />
+		</>
 	);
 }
 

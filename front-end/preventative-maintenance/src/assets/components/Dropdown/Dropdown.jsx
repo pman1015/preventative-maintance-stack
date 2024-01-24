@@ -20,8 +20,6 @@ function DropDown(props) {
 	const [options, setOptions] = useState([]);
 	const [textSize, setTextSize] = useState({});
 
-	const test = ["1", "test2", "test3", "test4"];
-
 	useEffect(() => {
 		if (expanded) {
 			setMenuState("expanded");

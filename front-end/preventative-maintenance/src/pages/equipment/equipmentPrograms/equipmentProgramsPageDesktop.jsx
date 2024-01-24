@@ -7,6 +7,7 @@ import {getProgramList} from "../../../util/equipmentQueries";
 import EquipmentControlMenu from "../components/EquipmentControlMenu";
 import * as svgs from "../components/equipmentSVGs";
 import ProgramDetails from "./components/programdetails";
+import ChangeLog from "./components/changeLog";
 import "./equipmentPrograms.css";
 
 //----------------------------------------------------------------
@@ -36,15 +37,21 @@ function LoadProgramPage() {
 			setPrograms(query_result.programs);
 		}
 	}, []);
-	
+
+	//----------------------------------------------------------------
+	//This use effect clears the details then reloads it 
+	//----------------------------------------------------------------
+	const [inQueue, setInQueue] = useState(false);
 	useEffect(() => {
-		console.log(loadedProgram);
-		if (loadedProgram !== "") {
-		} else {
-			console.log("null");
-		}
+		setInQueue(false);
 	}, [loadedProgram, setLoadedProgram]);
 
+	useEffect(() =>{
+		setInQueue(true);
+	},[inQueue]);
+	//----------------------------------------------------------------
+	//This returns the equipment list and details
+	//----------------------------------------------------------------
 	return (
 		<>
 			<div className="equipment_page_header">
@@ -56,9 +63,14 @@ function LoadProgramPage() {
 			</div>
 			<ProgramsList
 				setLoadedProgram={setLoadedProgram}
-				programsToLoad= {programs}
+				programsToLoad={programs}
 			/>
-			{loadedProgram !== "" ? <ProgramDetails name={loadedProgram} /> : <></>}
+			{inQueue && loadedProgram !== "" ? (
+				<ProgramDetails name={loadedProgram} />
+			) : (
+				<></>
+			)}
+			
 		</>
 	);
 }
@@ -73,7 +85,7 @@ function LoadProgramPage() {
 //        programsToLoad -> the response from the database query
 //----------------------------------------------------------------
 
-function ProgramsList({setLoadedProgram ,programsToLoad}) {
+function ProgramsList({setLoadedProgram, programsToLoad}) {
 	const programs = ["standard", "test", "next", "first"];
 
 	const [cards, setCards] = useState([]);

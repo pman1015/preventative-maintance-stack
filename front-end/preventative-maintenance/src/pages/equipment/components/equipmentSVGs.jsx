@@ -318,14 +318,50 @@ export const pencilSVG = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="32"
-			height="32"
-			viewBox="0 0 32 32"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
 			fill="none">
 			<path
 				d="M15 5L19 9M17 2.9999C17.2547 2.69894 17.5697 2.45396 17.925 2.28059C18.2803 2.10721 18.6681 2.00924 19.0636 1.99292C19.4592 1.9766 19.8538 2.04228 20.2224 2.18579C20.5909 2.3293 20.9254 2.54748 21.2043 2.82642C21.4833 3.10537 21.7006 3.43897 21.8425 3.80595C21.9845 4.17292 22.0478 4.56524 22.0286 4.95788C22.0094 5.35053 21.908 5.73489 21.7309 6.08647C21.5538 6.43805 21.3049 6.74914 21 6.9999L7.5 20.4999L2 21.9999L3.5 16.4999L17 2.9999Z"
 				stroke="white"
 				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	);
+};
+export const circleXSVG = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={24}
+			height={24}
+			fill="none"
+			viewBox="0 0 24 24">
+			<path
+				d="M15 9 9 15m0 -6 6 6m7 -3c0 5.523 -4.477 10 -10 10S2 17.523 2 12 6.477 2 12 2s9.999 4.477 9.999 10Z"
+				stroke="#fff"
+				strokeWidth={2.00025}
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+export const saveSVG = () => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none">
+			<path
+				d="M17 21V13H7V21M7 3V8H15M19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16L21 8V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21Z"
+				stroke="white"
+				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 			/>

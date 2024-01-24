@@ -229,3 +229,94 @@
         border-right: 10px solid transparent;
         background: transparent;
     }
+    
+    .change_log_container {
+        margin-top: 12px;
+        margin-left: 10px;
+        padding: 4px;
+        width: 148px;
+        height: 426px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #F0EEEE;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    .change_log_container button {
+        border: none;
+        width: 32px;
+        height: 32px;
+        padding: 0px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border-radius: 16px;
+        background: #224325;
+        align-items: center;
+        box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
+    }
+    
+    .change_log_container h1 {
+        color: #000;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+    
+    .change_log_entry .form-field {
+        margin-left: 19px;
+        align-items: center;
+    }
+    
+    .change_log_entry .text-input {
+        width: 90%;
+    }
+    
+    .change_log_entry h2 {
+        color: #000;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+    }
+    
+    .versions_container {
+        overflow-y: scroll;
+        height: 350px;
+    }
+    
+    .versions_container::-webkit-scrollbar {
+        right: 64px;
+        width: 16px;
+    }
+    
+    .versions_container::-webkit-scrollbar-thumb {
+        background: #D9D9D9;
+        border-left: 8px solid #eeeded;
+        border-right: 4px solid #eeeded;
+        border-top: 4px solid #eeeded;
+        border-bottom: 4px solid #eeeded;
+        border-radius: 48px;
+    }
+    
+    .text_button {
+        margin: 0px;
+        border: 0px;
+        padding: 0px;
+        height: 90%;
+    }
+    
+    .text_button h2 {
+        color: #000;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        padding: 4px;
+        border-radius: 16px;
+    }
+    
+    .text_button h2:hover {
+        background-color: #8b8282ae;
+    }

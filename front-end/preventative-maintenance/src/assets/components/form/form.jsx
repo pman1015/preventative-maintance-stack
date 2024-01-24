@@ -24,9 +24,13 @@ function InputForm({
 	cachedChanges,
 	setCachedChanges,
 }) {
+
+	//----------------------------------------------------------------
+	//This function takes in the name of a field and the value you want to update
+	//The function then updates the cache with the new value
+	//----------------------------------------------------------------
 	function updateCache(name, value) {
 		var newCache = [];
-
 		try {
 			for (let i = 0; i < cachedChanges.values.length; i++) {
 				var param = cachedChanges.values[i];
@@ -36,11 +40,14 @@ function InputForm({
 					newCache.push(param);
 				}
 			}
-
 			setCachedChanges({values: newCache});
 		} catch (e) {}
 	}
-
+	//------------------------------------------------------------------
+	//This function generates a field by taking in the field name and 
+	//Type of field to be genrated
+	//It then applies the style class
+	//------------------------------------------------------------------
 	function GenerateField(type, name, styleClass) {
 		return (
 			<div className="form-field">
@@ -57,15 +64,14 @@ function InputForm({
 		);
 	}
 	
-	useEffect(() => {
-		console.log("enable edit: " + isEditable);
-	}, [isEditable]);
-
+	//----------------------------------------------------------------
+	//This returns a blank div with a list of all of the fields generated
+	//by generate function for each field in the initial state
+	//------------------------------------------------------------------
 	return (
 		<>
 			{typeof initialStates.inputs !== "undefined" &&
-				initialStates.inputs.map((item) => {
-					
+				initialStates.inputs.map((item) => {	
 					return GenerateField(item.type, item.fieldName, item.styleClass);
 				})}
 		</>

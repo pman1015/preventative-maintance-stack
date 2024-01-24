@@ -14,6 +14,9 @@
         },{
             "name":"utilities",
             "path":"../src/util"
+        },{
+            "name":"vsCode",
+            "path":"./"
         }
        
 

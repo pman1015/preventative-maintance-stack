@@ -15,7 +15,7 @@ export function getProgramList(){
     return apiResponse;
 }
 
-export function getProgramDetails({programName}) {
+export function getProgramDetails(programName) {
     var apiResponse = {};
     if(devMode) apiResponse = programSampleQuery;
     return apiResponse;

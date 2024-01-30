@@ -13,22 +13,42 @@ import "./textBox.css";
 // height / width: optional numaric values for the height and width of the textBox
 //----------------------------------------------------------------
 
-function TextBox({label, cache, setCache, editable, height, width}) {
+function TextBox({
+	label,
+	cachedChanges,
+	setCachedChanges,
+	editable,
+	height,
+	width,
+	styleClass,
+	updateCache,
+	error,
+	message,
+}) {
 	const [textForBox, setTextForBox] = useState("");
 
 	useEffect(() => {
-		if (typeof cache.value !== "undefined") {
-			setTextForBox(cache.value);
-		}
-	}, [cache]);
+		if (
+			typeof cachedChanges !== "undefined" &&
+			typeof cachedChanges.values !== "undefined"
+		) {
+			for (let i = 0; i < cachedChanges.values.length; i++) {
+				let item = cachedChanges.values[i];
+				if (item.name === label) {
+					if (typeof item.value !== "undefined") {
+						setTextForBox(item.value);
+					}
 
-	function updateCacheValue(input) {
-		setCache({value: input});
-	}
-	useEffect(() => {}, [height, width]);
+					break;
+				}
+			}
+		} else {
+			setTextForBox("");
+		}
+	}, [cachedChanges]);
 
 	return (
-		<div className="text_box">
+		<div className={"text_box " + styleClass + " " + error}>
 			{editable ? (
 				<>
 					<h1>{label}</h1>
@@ -36,7 +56,7 @@ function TextBox({label, cache, setCache, editable, height, width}) {
 						className="text_box_input"
 						value={textForBox}
 						onChange={(e) => {
-							updateCacheValue(e.target.value);
+							updateCache(label, e.target.value);
 						}}
 					/>
 				</>

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import InputForm from "../../../../assets/components/form/form";
-import * as svgs from "../../components/equipmentSVGs";
+import InputForm from "../../../../../assets/components/form/form";
+import * as svgs from "../../../components/equipmentSVGs";
 import "./addDevice.css";
 
 function AddNewDevice({
@@ -10,7 +10,7 @@ function AddNewDevice({
 	devices,
 	setDevices,
 	setSelectedDevice,
-    setSelectedDeviceName,
+	setSelectedDeviceName,
 }) {
 	const [errors, setErrors] = useState("");
 	const [newDeviceCache, setNewDeviceCache] = useState(defaultCache);
@@ -79,7 +79,7 @@ function AddNewDevice({
 		setDevices([...devices, deviceToAdd]);
 		setDeviceList([...deviceList, newDeviceName]);
 		setSelectedDevice(deviceToAdd);
-        setSelectedDeviceName(newDeviceName);
+		setSelectedDeviceName(newDeviceName);
 		return "";
 	}
 	return (

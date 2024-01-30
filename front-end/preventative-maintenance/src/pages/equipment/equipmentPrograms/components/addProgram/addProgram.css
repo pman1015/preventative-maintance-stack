@@ -1,0 +1,203 @@
+    .add_new_program_container {
+        position: absolute;
+        right: calc(50% - 250px);
+        z-index: 16;
+        top: 32px;
+        width: 500px;
+        height: 470px;
+        border-radius: 12px;
+        background: #F0EEEE;
+        box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
+    }
+    
+    .add_new_program_container h1 {
+        color: rgba(55, 55, 55, 0.98);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+    
+    .toggle_button_container {
+        width: 84px;
+        height: 15px;
+        flex-shrink: 0;
+        display: flex;
+    }
+    
+    .active {
+        opacity: 1;
+    }
+    
+    .inactive {
+        opacity: 0;
+    }
+    
+    .toggle_button_container {
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 16px;
+        background: #D9D9D9;
+        width: 100px;
+        height: 15px;
+        flex-shrink: 0;
+    }
+    
+    .toggle_button_container .left_button {
+        border: none;
+        width: 48px;
+        height: 13px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #224325;
+    }
+    
+    .toggle_button_container .right_button {
+        border: none;
+        width: 48px;
+        height: 13px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #4154FF;
+    }
+    
+    .add_new_program_header {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        height: 48px;
+        margin-left: 12px;
+    }
+    
+    .add_new_program_header h3 {
+        margin: 0px;
+        padding: 0px;
+        color: #000;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    
+    .stacked_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .exit_button {
+        position: absolute;
+        right: 12px;
+        top: 8px;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #224325;
+        box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+    
+    .exit_button:hover {
+        background: #6f9773;
+    }
+    
+    .form-field h2 {
+        margin: 2px;
+        color: #000;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+    
+    .add_new_program_container .form-field {
+        padding: 0px;
+        margin: 0px;
+        height: fit-content
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: flex-end;
+        margin-top: 12px;
+    }
+    
+    .add_new_program_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .deviceSelector {
+        width: fit-content;
+        height: fit-content;
+        padding: 12px;
+        margin-top: 12px;
+        border-radius: 16px;
+        background: #DFDFDF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    .deviceSelector .form-field {
+        justify-content: flex-end
+    }
+    
+    .deviceSelector button {
+        width: 70px;
+        height: 24px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: white;
+        border-radius: 16px;
+    }
+    
+    .deviceSelector button:hover {
+        background-color: rgb(172, 170, 170);
+    }
+    
+    .deviceSelector button h1 {
+        color: #000;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+    
+    .saveButton {
+        margin-top: 12px;
+        border-radius: 12px;
+        border: none;
+        width: 248px;
+        height: 33px;
+        flex-shrink: 0;
+        background-color: #486A4B;
+        align-items: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .saveButton:hover {
+        background-color: #648967;
+    }
+    
+    .saveButton h1 {
+        padding: 0px;
+        margin: 0px;
+        color: #FFF;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }

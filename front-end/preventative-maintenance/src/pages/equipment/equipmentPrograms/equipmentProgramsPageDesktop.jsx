@@ -6,8 +6,9 @@ import ScrollPane from "../../../assets/components/ScrollPane/ScrollPane";
 import {getProgramList} from "../../../util/equipmentQueries";
 import EquipmentControlMenu from "../components/EquipmentControlMenu";
 import * as svgs from "../components/equipmentSVGs";
-import ProgramDetails from "./components/programdetails";
+import AddNewProgram from "./components/addProgram/addProgram";
 import ChangeLog from "./components/changeLog";
+import ProgramDetails from "./components/programdetails";
 import "./equipmentPrograms.css";
 
 //----------------------------------------------------------------
@@ -39,16 +40,16 @@ function LoadProgramPage() {
 	}, []);
 
 	//----------------------------------------------------------------
-	//This use effect clears the details then reloads it 
+	//This use effect clears the details then reloads it
 	//----------------------------------------------------------------
 	const [inQueue, setInQueue] = useState(false);
 	useEffect(() => {
 		setInQueue(false);
 	}, [loadedProgram, setLoadedProgram]);
 
-	useEffect(() =>{
+	useEffect(() => {
 		setInQueue(true);
-	},[inQueue]);
+	}, [inQueue]);
 	//----------------------------------------------------------------
 	//This returns the equipment list and details
 	//----------------------------------------------------------------
@@ -70,7 +71,6 @@ function LoadProgramPage() {
 			) : (
 				<></>
 			)}
-			
 		</>
 	);
 }
@@ -87,7 +87,7 @@ function LoadProgramPage() {
 
 function ProgramsList({setLoadedProgram, programsToLoad}) {
 	const programs = ["standard", "test", "next", "first"];
-
+	const [viewAddNewProgram, setAddNewProgram] = useState(false);
 	const [cards, setCards] = useState([]);
 
 	useEffect(() => {
@@ -107,27 +107,30 @@ function ProgramsList({setLoadedProgram, programsToLoad}) {
 		setCards(cardsToAdd);
 	}, [programsToLoad]);
 	return (
-		<div className="programs_list_container">
-			<div className="programs_list_header">
-				<h1 className="lightDesktopSubHeading">Current Programs</h1>
-				<button
-					onClick={() => {
-						setLoadedProgram({});
-					}}>
-					{svgs.squareAdd()}
-				</button>
+		<>
+			{viewAddNewProgram && <AddNewProgram setVisibility={setAddNewProgram}/>}
+			<div className="programs_list_container">
+				<div className="programs_list_header">
+					<h1 className="lightDesktopSubHeading">Current Programs</h1>
+					<button
+						onClick={() => {
+							setAddNewProgram(true);
+						}}>
+						{svgs.squareAdd()}
+					</button>
+				</div>
+				<div className="programs_list_processor_select">
+					<h1 className="darkDesktopSubHeading"> Processor </h1>
+					<DropDown width="196" height="28" options={programs} />
+				</div>
+				<ScrollPane
+					width="370"
+					height="285"
+					cards={cards}
+					header={programListHeader}
+				/>
 			</div>
-			<div className="programs_list_processor_select">
-				<h1 className="darkDesktopSubHeading"> Processor </h1>
-				<DropDown width="196" height="28" options={programs} />
-			</div>
-			<ScrollPane
-				width="370"
-				height="285"
-				cards={cards}
-				header={programListHeader}
-			/>
-		</div>
+		</>
 	);
 }
 const programListHeader = (

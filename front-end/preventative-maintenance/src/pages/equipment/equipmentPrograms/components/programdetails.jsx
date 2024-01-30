@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import DropDown from "../../../../assets/components/Dropdown/Dropdown";
 import InputForm from "../../../../assets/components/form/form";
-import TextBox from "../../../../assets/components/textBox/textBox";
+import TextBox from "../../../../assets/components/form/textBox/textBox";
 import {getProgramDetails} from "../../../../util/equipmentQueries";
 import * as svgs from "../../components/equipmentSVGs";
-import AddNewDevice from "./addDevice";
+import AddNewDevice from "./addDevice/addDevice";
 import ChangeLog from "./changeLog";
 
 //----------------------------------------------------------------
@@ -26,7 +26,9 @@ function ProgramDetails({name}) {
 	const [programVersions, setProgramVersions] = useState([]);
 	const [isEditable, setIsEditable] = useState(false);
 	const [initialStates, setInitialStates] = useState({});
-	const [notesCache, setNotesCache] = useState({value: ""});
+	const [notesCache, setNotesCache] = useState({
+		values: [{name: "Program Notes:", value: ""}],
+	});
 	const [changeLog, setChangeLog] = useState({});
 	const [showAddDevice, setShowAddDevice] = useState(false);
 	const [selectedVersion, setSelectedVersion] = useState("");
@@ -40,7 +42,9 @@ function ProgramDetails({name}) {
 
 		setProgramVersions(query_result.versions);
 		setProgramQuery(query_result.version_details);
-		setNotesCache({value: query_result.program_notes});
+		setNotesCache({
+			values: [{name: "Program Notes:", value: query_result.program_notes}],
+		});
 		generateChangeLog(query_result);
 	}, [name]);
 
@@ -94,7 +98,7 @@ function ProgramDetails({name}) {
 	//by the DropDown
 	//---------------------------------------------------------------
 	const [selectedDevice, setSelectedDevice] = useState({});
-	const [selectedDeviceName, setSelectedDeviceName]= useState("");
+	const [selectedDeviceName, setSelectedDeviceName] = useState("");
 	const selectDevice = (selected) => {
 		devices.forEach((device) => {
 			if (device.name === selected) {
@@ -136,8 +140,9 @@ function ProgramDetails({name}) {
 				},
 				{
 					fieldName: "notes",
-					type: "text",
+					type: "textarea",
 					initialValue: selectedDevice.notes,
+					styleClass: "device-notes",
 				},
 			],
 		};
@@ -212,7 +217,7 @@ function ProgramDetails({name}) {
 	const toggleEdit = () => {
 		setIsEditable(!isEditable);
 	};
-	
+
 	return (
 		<>
 			{showAddDevice && (
@@ -220,10 +225,10 @@ function ProgramDetails({name}) {
 					setVisibility={setShowAddDevice}
 					deviceList={deviceList}
 					setDeviceList={setDeviceList}
-					devices = {devices}
+					devices={devices}
 					setDevices={setDevices}
 					setSelectedDevice={setSelectedDevice}
-					setSelectedDeviceName = {setSelectedDeviceName}
+					setSelectedDeviceName={setSelectedDeviceName}
 				/>
 			)}
 			<div className="program_details_container">
@@ -279,11 +284,20 @@ function ProgramDetails({name}) {
 								/>
 							</div>
 						</div>
-						<TextBox
-							label="Program Notes: "
-							cache={notesCache}
-							setCache={setNotesCache}
-							editable={isEditable}
+						<InputForm
+							initialStates={{
+								inputs: [
+									{
+										fieldName: "Program Notes:",
+										type: "textarea",
+										initialValue: "",
+										styleClass: "program_notes",
+									},
+								],
+							}}
+							cachedChanges={notesCache}
+							setCachedChanges={setNotesCache}
+							isEditable={isEditable}
 						/>
 					</>
 				)}

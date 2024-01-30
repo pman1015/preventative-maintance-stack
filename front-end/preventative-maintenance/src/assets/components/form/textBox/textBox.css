@@ -46,3 +46,53 @@
     font-weight: 300;
     line-height: normal;
 }
+
+.device-notes.text_box {
+    display: flex;
+}
+
+.device-notes h1 {
+    margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.device-notes .text_box_input {
+    margin-left: 8px;
+    width: 170px;
+    background-color: rgba(255, 255, 255, 0.249);
+    /* Adjust the alpha value for transparency */
+    border: 1px solid #0000001c;
+    border-radius: 8px;
+    /* Add border for better visibility */
+    padding: 2px;
+    color: #333;
+    box-shadow: none;
+}
+
+.device-notes .text_box_asText {
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 80%;
+    height: 90%;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.device-notes .text_box_input {
+    margin-left: 12px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+}

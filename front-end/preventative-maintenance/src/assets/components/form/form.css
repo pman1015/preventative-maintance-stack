@@ -3,3 +3,14 @@
     gap: 10px;
     align-items: center;
 }
+
+.form-field p {
+    color: rgba(197, 3, 3, 0.545);
+    top: -4px;
+    margin-bottom: 0px;
+    position: static;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}

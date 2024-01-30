@@ -1,0 +1,45 @@
+.text_choice_box {
+    position: relative;
+    z-index: 5;
+    padding: 0px 0px 0px 4px;
+    width: 200px;
+    height: 24px;
+    display: flex;
+    background: #DEDEDE;
+    border-radius: 16px;
+}
+
+.text_input_field {
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+    color: #333;
+}
+
+.text_input_field:focus {
+    outline: none;
+}
+
+.expand_button {
+    z-index: 10;
+    filter: drop-shadow(-2px 0px 7.2px #cecece6d);
+    width: 35px;
+    height: 100%;
+    border-radius: 0px 12px 12px 0px;
+    border: none;
+    background: #DEDEDE;
+    padding: auto;
+    display: flex;
+    align-items: center;
+}
+
+.text_choice_box .dropdown-menu {
+    padding-top: 16px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 0px;
+    width: 175px;
+    margin-left: -4px;
+}

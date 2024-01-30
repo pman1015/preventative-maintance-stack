@@ -1,322 +1,382 @@
-    .programs_list_container {
-        margin-top: 12px;
-        width: 376px;
-        height: 387.84px;
-        flex-shrink: 0;
-        border-radius: 12px;
-        background: #F0EEEE;
-        box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
-        padding: 20px;
-    }
-    
-    .programs_list_header {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    
-    .lightDesktopSubHeading {
-        color: rgba(55, 55, 55, 0.98);
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .programs_list_header button {
-        margin-left: 8px;
-        margin-top: 4px;
-        border: none;
-        width: 32px;
-        height: 32px;
-        padding: 0px;
-        align-items: center;
-        display: flex;
-    }
-    
-    .programs_list_header button:hover {
-        background-color: #c4c3c364;
-        border-radius: 16px;
-    }
-    
-    .programs_list_processor_select {
-        width: 85%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .darkDesktopSubHeading {
-        color: #000;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .program_list_scroll_header {
-        height: 28px;
-        flex-shrink: 0;
-        width: 100%;
-        display: flex;
-        border-radius: 9px;
-        background: #eeeded;
-        box-shadow: 4px 4px 10.7px 0px rgba(180, 180, 180, 0.60);
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .program_list_scroll_header h1 {
-        margin: 0px 24px;
-        color: #000;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .program_list_scroll_card {
-        direction: ltr;
-        margin: 4px 0px;
-        width: 297px;
-        height: 22px;
-        flex-shrink: 0;
-        border-radius: 9px;
-        background: #D9D9D9;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .program_list_scroll_card:hover {
-        background: #b7b7b7;
-    }
-    
-    .program_list_scroll_card h1 {
-        margin: 0px 12px;
-        color: #000;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .program_details_container {
-        display: flex;
-        flex-direction: column;
-        margin-top: 12px;
-        margin-left: 8px;
-        padding-left: 8px;
-        width: 337px;
-        flex-shrink: 0;
-        border-radius: 12px;
-        background: #F0EEEE;
-        box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
-    }
-    
-    .program_details_edit_btn {
-        z-index: 10;
-        position: relative;
-        left: calc( 100% - 36px);
-        top: 4px;
-        padding: 4px;
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 16px;
-        background: #224325;
-        box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
-        border: none;
-    }
-    
-    .program_details_edit_btn:hover {
-        background: #3c7741;
-    }
-    
-    .program_details_header {
-        position: relative;
-        top: -28px;
-    }
-    
-    .program_details_header h2 {
-        margin-left: 12px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        color: #000;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: normal;
-    }
-    
-    .program_details_detailsSection {}
-    
-    .program_details_detailsSection h2 {
-        margin-left: 12px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        color: #000;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: normal;
-    }
-    
-    .inline_content {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .program_details_device_details_container {
-        padding-top: 8px;
-        overflow-y: scroll;
-        margin-left: 40px;
-        margin-top: 8px;
-        width: 272px;
-        height: 90px;
-        flex-shrink: 0;
-        border-radius: 8px;
-        background: #F0EEEE;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-    
-    .program_details_program_notes {}
-    
-    .program_details_program_notes h1 {
-        color: #000;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .program_details_program_notes_container {
-        margin-left: 40px;
-        margin-top: 8px;
-        width: 272px;
-        height: 90px;
-        flex-shrink: 0;
-        border-radius: 8px;
-        background: #F0EEEE;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-    
-    .program_details_device_details_container p {
-        color: #000;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-    }
-    
-    .program_details_device_details_container::-webkit-scrollbar {
-        width: 12px;
-    }
-    
-    .program_details_device_details_container::-webkit-scrollbar-track {
-        background-color: transparent;
-        border-radius: 12px;
-    }
-    
-    .program_details_device_details_container::-webkit-scrollbar-thumb {
-        border-radius: 0px;
-        border-left: 6px solid #D9D9D9;
-        border-right: 10px solid transparent;
-        background: transparent;
-    }
-    
-    .change_log_container {
-        margin-top: 12px;
-        margin-left: 10px;
-        padding: 4px;
-        width: 148px;
-        height: 426px;
-        flex-shrink: 0;
-        border-radius: 8px;
-        background: #F0EEEE;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-    
-    .change_log_container button {
-        border: none;
-        width: 32px;
-        height: 32px;
-        padding: 0px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        border-radius: 16px;
-        background: #224325;
-        align-items: center;
-        box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
-    }
-    
-    .change_log_container h1 {
-        color: #000;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-    }
-    
-    .change_log_entry .form-field {
-        margin-left: 19px;
-        align-items: center;
-    }
-    
-    .change_log_entry .text-input {
-        width: 90%;
-    }
-    
-    .change_log_entry h2 {
-        color: #000;
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: normal;
-    }
-    
-    .versions_container {
-        overflow-y: scroll;
-        height: 350px;
-    }
-    
-    .versions_container::-webkit-scrollbar {
-        right: 64px;
-        width: 16px;
-    }
-    
-    .versions_container::-webkit-scrollbar-thumb {
-        background: #D9D9D9;
-        border-left: 8px solid #eeeded;
-        border-right: 4px solid #eeeded;
-        border-top: 4px solid #eeeded;
-        border-bottom: 4px solid #eeeded;
-        border-radius: 48px;
-    }
-    
-    .text_button {
-        margin: 0px;
-        border: 0px;
-        padding: 0px;
-        height: 90%;
-    }
-    
-    .text_button h2 {
-        color: #000;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: normal;
-        padding: 4px;
-        border-radius: 16px;
-    }
-    
-    .text_button h2:hover {
-        background-color: #8b8282ae;
-    }
+            .programs_list_container {
+                margin-top: 12px;
+                width: 376px;
+                height: 387.84px;
+                flex-shrink: 0;
+                border-radius: 12px;
+                background: #F0EEEE;
+                box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
+                padding: 20px;
+            }
+            
+            .programs_list_header {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            
+            .lightDesktopSubHeading {
+                color: rgba(55, 55, 55, 0.98);
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .programs_list_header button {
+                margin-left: 8px;
+                margin-top: 4px;
+                border: none;
+                width: 32px;
+                height: 32px;
+                padding: 0px;
+                align-items: center;
+                display: flex;
+            }
+            
+            .programs_list_header button:hover {
+                background-color: #c4c3c364;
+                border-radius: 16px;
+            }
+            
+            .programs_list_processor_select {
+                width: 85%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .darkDesktopSubHeading {
+                color: #000;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .program_list_scroll_header {
+                height: 28px;
+                flex-shrink: 0;
+                width: 100%;
+                display: flex;
+                border-radius: 9px;
+                background: #eeeded;
+                box-shadow: 4px 4px 10.7px 0px rgba(180, 180, 180, 0.60);
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .program_list_scroll_header h1 {
+                margin: 0px 24px;
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .program_list_scroll_card {
+                direction: ltr;
+                margin: 4px 0px;
+                width: 297px;
+                height: 22px;
+                flex-shrink: 0;
+                border-radius: 9px;
+                background: #D9D9D9;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .program_list_scroll_card:hover {
+                background: #b7b7b7;
+            }
+            
+            .program_list_scroll_card h1 {
+                margin: 0px 12px;
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .program_details_container {
+                display: flex;
+                flex-direction: column;
+                margin-top: 12px;
+                margin-left: 8px;
+                padding-left: 8px;
+                width: 337px;
+                flex-shrink: 0;
+                border-radius: 12px;
+                background: #F0EEEE;
+                box-shadow: 4px 4px 8px 0px rgba(38, 60, 40, 0.63);
+            }
+            
+            .program_details_edit_btn {
+                z-index: 10;
+                position: relative;
+                left: calc( 100% - 36px);
+                top: 4px;
+                padding: 4px;
+                width: 32px;
+                height: 32px;
+                flex-shrink: 0;
+                border-radius: 16px;
+                background: #224325;
+                box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
+                border: none;
+            }
+            
+            .program_details_edit_btn:hover {
+                background: #3c7741;
+            }
+            
+            .program_details_header {
+                position: relative;
+                top: -28px;
+            }
+            
+            .program_details_header h2 {
+                margin-left: 12px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 200;
+                line-height: normal;
+            }
+            
+            .program_details_detailsSection {}
+            
+            .program_details_detailsSection h2 {
+                margin-left: 12px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 200;
+                line-height: normal;
+            }
+            
+            .inline_content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .program_details_device_details_container {
+                padding-top: 8px;
+                overflow-y: scroll;
+                margin-left: 40px;
+                margin-top: 8px;
+                width: 272px;
+                height: 90px;
+                flex-shrink: 0;
+                border-radius: 8px;
+                background: #F0EEEE;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+            
+            .program_details_program_notes {}
+            
+            .program_details_program_notes h1 {
+                color: #000;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .program_details_program_notes_container {
+                margin-left: 40px;
+                margin-top: 8px;
+                width: 272px;
+                height: 90px;
+                flex-shrink: 0;
+                border-radius: 8px;
+                background: #F0EEEE;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+            
+            .program_details_device_details_container p {
+                color: #000;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+            
+            .program_details_device_details_container::-webkit-scrollbar {
+                width: 12px;
+            }
+            
+            .program_details_device_details_container::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 12px;
+            }
+            
+            .program_details_device_details_container::-webkit-scrollbar-thumb {
+                border-radius: 0px;
+                border-left: 6px solid #D9D9D9;
+                border-right: 10px solid transparent;
+                background: transparent;
+            }
+            
+            .change_log_container {
+                margin-top: 12px;
+                margin-left: 10px;
+                padding: 4px;
+                width: 148px;
+                height: 426px;
+                flex-shrink: 0;
+                border-radius: 8px;
+                background: #F0EEEE;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+            
+            .change_log_container button {
+                border: none;
+                width: 32px;
+                height: 32px;
+                padding: 0px;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                border-radius: 16px;
+                background: #224325;
+                align-items: center;
+                box-shadow: 4px 4px 4px 0px rgba(133, 133, 133, 0.87);
+            }
+            
+            .change_log_container h1 {
+                color: #000;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+            
+            .change_log_entry .form-field {
+                margin-left: 19px;
+                align-items: center;
+            }
+            
+            .change_log_entry .text-input {
+                width: 90%;
+            }
+            
+            .change_log_entry h2 {
+                color: #000;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 200;
+                line-height: normal;
+            }
+            
+            .versions_container {
+                overflow-y: scroll;
+                height: 350px;
+            }
+            
+            .versions_container::-webkit-scrollbar {
+                right: 64px;
+                width: 16px;
+            }
+            
+            .versions_container::-webkit-scrollbar-thumb {
+                background: #D9D9D9;
+                border-left: 8px solid #eeeded;
+                border-right: 4px solid #eeeded;
+                border-top: 4px solid #eeeded;
+                border-bottom: 4px solid #eeeded;
+                border-radius: 48px;
+            }
+            
+            .text_button {
+                margin: 0px;
+                border: 0px;
+                padding: 0px;
+                height: 90%;
+            }
+            
+            .text_button h2 {
+                color: #000;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 200;
+                line-height: normal;
+                padding: 4px;
+                border-radius: 16px;
+            }
+            
+            .text_button h2:hover {
+                background-color: #8b8282ae;
+            }
+            
+            .device-notes.text_box {
+                display: flex;
+            }
+            
+            .device-notes h1 {
+                margin-left: 12px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 200;
+                line-height: normal;
+            }
+            
+            .device-notes .text_box_input {
+                margin-left: 8px;
+                width: 170px;
+                background-color: rgba(255, 255, 255, 0.249);
+                /* Adjust the alpha value for transparency */
+                border: 1px solid #0000001c;
+                border-radius: 8px;
+                /* Add border for better visibility */
+                padding: 2px;
+                color: #333;
+                box-shadow: none;
+            }
+            
+            .device-notes .text_box_asText {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 80%;
+                height: 90%;
+                flex-shrink: 0;
+                border-radius: 8px;
+                background: transparent;
+                box-shadow: none;
+            }
+            
+            .device-notes .text_box_input {
+                margin-left: 12px;
+                margin-top: 4px;
+                margin-bottom: 0px;
+                color: #000;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 100;
+                line-height: normal;
+            }
+            
+            .program_notes .text_box_input {
+                width: 260px;
+                height: 93px;
+            }
+            
+            .program_notes .text_box_asText {
+                width: 260px;
+                height: 93px;
+            }

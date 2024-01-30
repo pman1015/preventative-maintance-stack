@@ -1,0 +1,5 @@
+.textChoiceBox_field {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}

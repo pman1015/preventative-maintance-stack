@@ -1,0 +1,297 @@
+.add_equipment_buttons {
+    margin-bottom: 12px;
+}
+
+.left_column_add_equipment {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+}
+
+.DeviceTypeToggle {
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #F0EEEE;
+    box-shadow: 2px 2px 9px 0px rgba(122, 122, 122, 0.66) inset, 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.add_equipment_buttons button {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.add_equipment_buttons button:hover {
+    filter: brightness(1.3);
+}
+
+.add_equipment_buttons h1 {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.newDeviceType {
+    width: 140px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #3E7543;
+    box-shadow: 4px 4px 7.5px 0px rgba(99, 152, 111, 0.56);
+}
+
+.newDevice {
+    width: 110px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #243C8F;
+    box-shadow: 4px 4px 7.5px 0px rgba(118, 132, 177, 0.51), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inactive {
+    opacity: 0;
+}
+
+.inline_content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.save_equipment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 135px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #2B572F;
+    box-shadow: 2px 2px 1.8px 0px rgba(255, 255, 255, 0.27) inset, 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card {
+    border-radius: 12px;
+    background: #D9D9D9;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card .lightText {
+    color: rgba(55, 55, 55, 0.98);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.newDeviceForm {
+    width: 401px;
+    height: 250px;
+    flex-shrink: 0;
+}
+
+.newDeviceForm .text_choice_box {
+    background-color: #f9f9f9;
+}
+
+.newDeviceForm .text-input {
+    background-color: #f9f9f9;
+}
+
+.newDeviceForm .text-input:focus {
+    outline: none;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.newDeviceForm .text_choice_box button {
+    background-color: #f9f9f9;
+}
+
+.newDeviceForm .text_choice_box button:hover {
+    background-color: #d8d7d7;
+}
+
+.newDeviceForm .form-field {
+    justify-content: flex-end;
+    margin: 8px 0px;
+}
+
+.nameToggle {
+    width: 33px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #F0EEEE;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nameToggle .left {
+    transition: opacity 0.5s ease;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #31943A;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 5px 0px 10.4px 0px rgba(98, 98, 98, 0.58);
+}
+
+.nameToggle .right {
+    transition: opacity 0.5s ease;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #99AB9B;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -5px 0px 10.4px 0px rgba(98, 98, 98, 0.58);
+}
+
+.nameToggle .false {
+    opacity: 0;
+}
+
+.newDeviceTypeForm {
+    width: calc( 425px - 16px);
+    height: calc( 425px - 16px);
+    padding: 8px;
+}
+
+.newDeviceTypeForm .text-input {
+    background-color: #f9f9f9;
+}
+
+.newDeviceTypeForm .text-input:focus {
+    outline: none;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.newOptionButton {
+    width: 132px;
+    height: 21px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 12px;
+    background: #D9D9D9;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newOptionButton:hover {
+    background: #efecec;
+}
+
+.newOptionButton h1 {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.newDeviceTypeForm .scroll_pane_container {
+    max-height: 240px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.newDeviceTypeForm .scroll_pane_scroll {
+    margin-left: -24px;
+}
+
+.OptionCard {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    margin-top: 16px;
+}
+
+.toggleOption {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: #DCDCDC;
+    box-shadow: 0px 4px 4px 0px #BBB5B5 inset;
+    border-radius: 24px;
+    border: none;
+}
+
+.toggleOption.active {
+    background-color: rgba(95, 177, 102, 0.75);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.NewOptionForm {
+    position: absolute;
+    z-index: 12;
+    top: 16px;
+    left: 40%;
+    width: 332px;
+    height: 220px;
+    flex-shrink: 0;
+}
+
+.NewOptionForm .choicebox_field {
+    max-width: 190px;
+}
+
+.NewOptionForm .form-field {
+    margin-left: 20px;
+}
+
+.NewOptionForm button:hover {
+    filter: brightness(1.1);
+}
+
+.FieldConfiguration {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 442px;
+    height: 484px;
+    flex-shrink: 0;
+}
+
+.FieldConfiguration h1 {
+    margin-left: 12px;
+    color: rgba(55, 55, 55, 0.98);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.right_column_add_equipment {
+    left: 48px;
+    position: relative;
+    top: 20px;
+}
+
+.FieldContainer {
+    width: calc( 100% - 16px);
+    margin: 12px auto;
+    height: 310px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #F0F0F0;
+    box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25) inset, 4px 7px 4px 0px rgba(0, 0, 0, 0.15);
+}

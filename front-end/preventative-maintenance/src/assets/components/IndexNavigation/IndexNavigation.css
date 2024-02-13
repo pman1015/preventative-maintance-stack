@@ -1,0 +1,49 @@
+    .indexNav {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 12px;
+        width: calc( 100% - 48px);
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #E7E5E5;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        top: calc( 100% - 68px);
+        left: 12px
+    }
+    
+    .indexNav button:hover {
+        filter: brightness(1.1);
+    }
+    
+    .index-buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .index-buttons button.selected {
+        background: #b9b7b7;
+    }
+    
+    .indexNav button {
+        width: 30px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #D9D9D9;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .indexNav button h1 {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .cheveron-button {}

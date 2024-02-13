@@ -1,0 +1,10 @@
+{
+    "status": 200,
+    "options": [
+        { "name": "Resolution", "type": "options" },
+        { "name": "Input Number", "type": "text" },
+        { "name": "Output Number", "type": "text" },
+        { "name": "Control Type", "type": "options" },
+        { "name": "Program", "type": "text" }, { "name": "Operational Hours", "type": "text" }
+    ]
+}

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import DropDown from "../../../../assets/components/Dropdown/Dropdown";
 import InputForm from "../../../../assets/components/form/form";
-import TextBox from "../../../../assets/components/form/textBox/textBox";
+import TextBox from "../../../../assets/components/form/components/textBox/textBox";
 import {getProgramDetails} from "../../../../util/equipmentQueries";
 import * as svgs from "../../components/equipmentSVGs";
 import AddNewDevice from "./addDevice/addDevice";

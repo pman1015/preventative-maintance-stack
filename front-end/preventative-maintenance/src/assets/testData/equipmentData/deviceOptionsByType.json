@@ -1,0 +1,11 @@
+{
+    "status": 200,
+    "options": [
+        { "name": "Resolution", "type": "options", "default": "", "options": ["1920x1080", "1920x1200"] },
+        { "name": "Input Number", "type": "text", "default": "" },
+        { "name": "Output Number", "type": "text", "default": "" },
+        { "name": "Control Type", "type": "options", "default": "" },
+        { "name": "Program", "type": "text", "default": "" },
+        { "name": "Operational Hours", "type": "text", "default": "" }
+    ]
+}

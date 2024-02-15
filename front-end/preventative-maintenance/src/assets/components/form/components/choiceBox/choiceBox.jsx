@@ -44,7 +44,7 @@ function ChoiceBox({
 	}, [styleClass]);
 
 	return (
-		<div className={"choicebox_field "} style={{width: "80%"}}>
+		<div className={"choicebox_field "} style={{maxWidth: "80%", minWidth: "50%"}}>
 			{editable ? (
 				<DropDown
 					width={styledWidth}

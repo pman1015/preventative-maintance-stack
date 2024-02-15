@@ -47,7 +47,7 @@ function TextField({
 				break;
 			}
 		}
-	}, [cachedChanges, setCachedChanges]);
+	}, [cachedChanges, setCachedChanges,name]);
 
 	return (
 		<>

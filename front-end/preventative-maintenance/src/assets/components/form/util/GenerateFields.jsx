@@ -62,6 +62,7 @@ function GenerateField(
 					/>
 				);
 			case "dropdown":
+			case "options":
 				return (
 					<>
 						<h2>{name}</h2>
@@ -110,13 +111,13 @@ function GenerateField(
 				);
 			case "textList":
 				return (
-					<TextList 
+					<TextList
 						isEditable={isEditable}
 						cachedChanges={cachedChanges}
-						setCachedChanges={setCachedChanges} 
+						setCachedChanges={setCachedChanges}
 						name={name}
-						/>
-				)
+					/>
+				);
 		}
 	};
 	return <div className="form-field">{fieldType(type)}</div>;

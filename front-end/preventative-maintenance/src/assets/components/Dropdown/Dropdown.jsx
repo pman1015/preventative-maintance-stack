@@ -86,6 +86,7 @@ function DropDown(props) {
 						className="dropdown-options">
 						{options.map((entry) => (
 							<li
+								key={entry}
 								onClick={(event) => {
 									setSelected(entry);
 									setExpanded(!expanded);

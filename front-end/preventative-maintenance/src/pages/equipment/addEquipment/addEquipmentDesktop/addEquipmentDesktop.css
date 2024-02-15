@@ -295,3 +295,29 @@
     background: #F0F0F0;
     box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25) inset, 4px 7px 4px 0px rgba(0, 0, 0, 0.15);
 }
+
+.addDeviceInfo {
+    position: relative;
+    top: 115px;
+    width: 420px;
+    height: 180px;
+    padding: 8px;
+}
+
+.addDeviceInfo .indexNav {
+    top: auto;
+    margin-top: 32px;
+}
+
+.addDeviceInfo h1 {
+    margin-left: 12px;
+    color: rgba(55, 55, 55, 0.98);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.infoFrom {
+    margin-left: 16px;
+}

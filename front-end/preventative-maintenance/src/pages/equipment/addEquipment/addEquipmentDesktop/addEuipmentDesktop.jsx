@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import EquipmentControlMenu from "../../components/EquipmentControlMenu";
 import * as svgs from "../../components/equipmentSVGs";
 import "./addEquipmentDesktop.css";
+import AddDeviceInfo from "./components/AddDeviceInfo";
 import FieldConfiguration from "./components/FieldConfiguration";
 import NewDeviceForm from "./components/NewDeviceForm";
 import NewDeviceTypeForm from "./components/NewDeviceTypeForm";
@@ -11,7 +12,21 @@ function AddEquipmentDesktop() {
 	const [newTypeSelected, setNewTypeSelcted] = useState(false);
 	const [optionsCache, setOptionsCache] = useState({});
 	const [fieldCache, setFieldCache] = useState({});
+	const [deviceTypeCache, setDeviceTypeCache] = useState({});
+	const [deviceType, setDeviceType] = useState("");
 
+	useEffect(() => {
+		try {
+			const typeIndex = deviceTypeCache.values.findIndex(
+				(value) => value.name === "Type Name"
+			);
+			if (typeIndex !== -1) {
+				setDeviceType(deviceTypeCache.values[typeIndex].value);
+			}
+		} catch (e) {
+			console.error(e);
+		}
+	}, [deviceTypeCache]);
 	useEffect(() => {
 		try {
 			let tempCache = [];
@@ -56,14 +71,21 @@ function AddEquipmentDesktop() {
 						setOptionsCache={setOptionsCache}
 					/>
 				) : (
-					<NewDeviceForm />
+					<NewDeviceForm
+						deviceTypeCache={deviceTypeCache}
+						setDeviceTypeCache={setDeviceTypeCache}
+					/>
 				)}
 			</div>
 			<div className="right_column_add_equipment">
-				<FieldConfiguration
-					fieldCache={fieldCache}
-					setFieldCache={setFieldCache}
-				/>
+				{newTypeSelected ? (
+					<FieldConfiguration
+						fieldCache={fieldCache}
+						setFieldCache={setFieldCache}
+					/>
+				) : (
+					<AddDeviceInfo deviceName={deviceType} />
+				)}
 			</div>
 		</>
 	);

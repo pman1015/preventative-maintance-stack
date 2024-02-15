@@ -21,7 +21,8 @@ const updateCache = (name, value, cachedChanges, setCachedChanges) => {
 				var param = cachedChanges.values[i];
 				if (param.name === name) {
 					newValue = false;
-					newCache.push({name: param.name, value: value});
+					param.value = value;
+					newCache.push(param);
 				} else {
 					newCache.push(param);
 				}

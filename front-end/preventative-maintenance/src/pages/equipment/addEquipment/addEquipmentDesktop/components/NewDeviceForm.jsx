@@ -11,9 +11,9 @@ import {
  *
  * @returns {JSX.Element.NewDeviceForm}
  */
-function NewDeviceForm({optionsCache, setOptionsCache}) {
+function NewDeviceForm({deviceTypeCache, setDeviceTypeCache}) {
 	const [newDeviceInitial, setNewDeviceInitial] = useState({});
-	const [deviceTypeCache, setDeviceTypeCache] = useState({});
+
 	const [deviceTypeInitial, setDeviceTypeInitial] = useState({});
 	const [newDeviceCache, setNewDeviceCache] = useState({});
 	//----------------------------------------------------------------

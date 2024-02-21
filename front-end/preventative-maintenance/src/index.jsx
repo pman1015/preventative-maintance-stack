@@ -7,6 +7,7 @@ import EquipmentPage from "./pages/equipment/equipment";
 import EquipmentProgramsPage from "./pages/equipment/equipmentPrograms/equipmentProgramsPageDesktop";
 import LoginPage from "./pages/login/login";
 import AddEquipmentPage from "./pages/equipment/addEquipment/addEquipment";
+import MaintanceEdit from "./pages/equipment/maintanceEdit/maintanceEdit";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
 			<Route path="/equipment" element={<EquipmentPage />} />
 			<Route path="/equipment/programs" element={<EquipmentProgramsPage />} />
 			<Route path ="/equipment/addEquipment" element ={<AddEquipmentPage />} />
+			<Route path = "/equipment/maintanceEdit" element={<MaintanceEdit />} />
 		</Routes>
 	</BrowserRouter>
 );

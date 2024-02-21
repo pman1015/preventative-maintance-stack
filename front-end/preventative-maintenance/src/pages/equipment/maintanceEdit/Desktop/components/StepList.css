@@ -1,0 +1,72 @@
+.inline-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 100%;
+}
+
+.steps-container h1 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.outer-scroll-container {
+    background-color: #F0EEEE;
+    border-radius: 10px;
+    padding: 10px 10px 20px 0px;
+    width: 300px;
+    height: 150px;
+}
+
+.ScrollArea {
+    height: 100%;
+    padding: 8px;
+    overflow-y: scroll;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.ScrollArea::-webkit-scrollbar {
+    width: 8px;
+    height: calc(50% - 8px);
+}
+
+.ScrollArea::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+    margin-right: 16px;
+}
+
+.ScrollArea::-webkit-scrollbar-thumb {
+    border-style: solid;
+    border-color: #F0EEEE;
+    border-width: .7rem 0px;
+    background-color: #888;
+}
+
+.ScrollArea::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.stepCard {
+    background-color: #DFDFDF;
+    width: 90%;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.stepCard.inactive {
+    background-color: #DFDFDF;
+    opacity: 1;
+}
+
+.stepCard.active {
+    background-color: #C9C7C7
+}

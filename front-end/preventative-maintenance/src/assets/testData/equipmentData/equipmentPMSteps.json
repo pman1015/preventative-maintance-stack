@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "steps": [{
+        "stepName": "Projector Power 1"
+
+    }, {
+        "stepName": "Projector Power 2"
+
+    }, {
+        "stepName": "Projector Power 3"
+
+    }, {
+        "stepName": "Projector Power 4"
+
+    }, {
+        "stepName": "Projector Power 5"
+
+    }, {
+        "stepName": "Projector Power 6"
+
+    }, {
+        "stepName": "Projector Power 7"
+
+    }]
+}

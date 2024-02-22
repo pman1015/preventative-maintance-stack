@@ -52,6 +52,7 @@ function IndexNavigation({size, selectedIndex, setSelectedIndex}) {
 		setNavigationButtons(newButtons);
 	}, [showState, size, selectedIndex]);
 	useEffect(() => {
+		if(size === 0) return;
 		if (selectedIndex > size - 1) {
 			setSelectedIndex(size - 1);
 		} else {

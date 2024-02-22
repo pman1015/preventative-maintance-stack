@@ -2,12 +2,13 @@ import {useEffect, useState} from "react";
 import EquipmentControlMenu from "../../components/EquipmentControlMenu";
 import * as svgs from "../../components/equipmentSVGs";
 import DeviceTypeSelect from "./components/DeviceTypeSelect";
+import StepEdit from "./components/StepEdit";
 import PMStepsList from "./components/StepsList";
-
+import "./maintanceEditDesktop.css";
 function MaintanceEditDesktop() {
 	//Cache to store the current selection for device type
 	const [deviceSelectCache, setDeviceSelectCache] = useState({});
-	const [selectedCard,setSelectedCard] = useState({});
+	const [selectedCard, setSelectedCard] = useState({});
 
 	return (
 		<>
@@ -19,6 +20,7 @@ function MaintanceEditDesktop() {
 						<h1 style={{top: "18px", fontSize: "24px"}}>PM Check List</h1>
 					</div>
 				</div>
+
 				<DeviceTypeSelect
 					deviceSelectCache={deviceSelectCache}
 					setDeviceSelectCache={setDeviceSelectCache}
@@ -28,6 +30,9 @@ function MaintanceEditDesktop() {
 					selectedCard={selectedCard}
 					setSelectedCard={setSelectedCard}
 				/>
+			</div>
+			<div className="left-side-page">
+				<StepEdit selectedStep={selectedCard} setSelectedStep={setSelectedCard} />
 			</div>
 		</>
 	);

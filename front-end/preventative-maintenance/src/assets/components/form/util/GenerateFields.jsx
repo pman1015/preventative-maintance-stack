@@ -99,7 +99,7 @@ function GenerateField(
 					<>
 						<SingleOption
 							isEditable={isEditable}
-							cachedChages={cachedChanges}
+							cachedChanges={cachedChanges}
 							setCachedChanges={setCachedChanges}
 							name={name}
 							styleClass={styleClass}

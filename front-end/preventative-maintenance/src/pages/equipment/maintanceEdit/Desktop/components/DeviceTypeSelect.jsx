@@ -30,6 +30,7 @@ function DeviceTypeSelect({deviceSelectCache, setDeviceSelectCache}) {
 	}, []);
 	return (
 		<InputForm
+		
 			isEditable={true}
 			initialStates={deviceSelectInitial}
 			cachedChanges={deviceSelectCache}

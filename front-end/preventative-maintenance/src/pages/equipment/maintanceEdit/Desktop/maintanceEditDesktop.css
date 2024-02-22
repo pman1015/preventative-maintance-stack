@@ -1,0 +1,11 @@
+    .left-side-page {
+        height: 520px;
+        padding-right: 32px;
+    }
+    
+    .light-card {
+        background-color: #F0EEEE;
+        border-radius: 10px;
+        padding: 4px;
+        margin-bottom: 20px;
+    }

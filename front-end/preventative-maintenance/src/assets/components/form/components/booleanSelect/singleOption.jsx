@@ -18,7 +18,7 @@ import "./singleOption.css";
  */
 function SingleOption({
 	isEditable,
-	cachedChages,
+	cachedChanges,
 	setCachedChanges,
 	name,
 	styleClass,
@@ -26,8 +26,30 @@ function SingleOption({
 	const [selected, setSelected] = useState(false);
 
 	useEffect(() => {
-		updateCache(name, selected, cachedChages, setCachedChanges);
+		updateCache(name, selected, cachedChanges, setCachedChanges);
 	}, [selected]);
+
+	useEffect(
+		() => {
+			if (
+				typeof cachedChanges === "undefined" ||
+				typeof cachedChanges.values === "undefined"
+			) {
+				setSelected(false);
+				return;
+			}
+			let active_index = cachedChanges.values.findIndex(
+				(item) => item.name === name
+			);
+			if (active_index === -1) {
+				setSelected(false);
+				return;
+			}
+
+			setSelected(cachedChanges.values[active_index].value === "" ? false : cachedChanges.values[active_index].value);
+		},
+		[cachedChanges]
+	);
 
 	return (
 		<div className={` singleOption_field + ${styleClass} `}>

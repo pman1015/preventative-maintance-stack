@@ -29,6 +29,26 @@ function ChoiceBox({
 	useEffect(() => {
 		updateCache(name, selectedValue,cachedChanges,setCachedChanges);
 	}, [selectedValue, setSelectedValue]);
+
+	useEffect(()=> {
+		if (
+			typeof cachedChanges === "undefined" ||
+			typeof cachedChanges.values === "undefined"
+		) {
+			setSelectedValue("");
+			return;
+		}
+
+		for (let i = 0; i < cachedChanges.values.length; i++) {
+			let item = cachedChanges.values[i];
+			if (item.name === name) {
+				setSelectedValue(item.value);
+				break;
+			}
+		}
+	},[cachedChanges])
+
+
 	const [styledWidth, setStyledWidth] = useState(200);
 	const [styledHeight, setStyledHeight] = useState(24);
 	useEffect(() => {

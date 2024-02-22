@@ -28,10 +28,19 @@ function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard}) {
 		}
 	}, [deviceType]);
 
-	//log when a change occurs to steps cache
+	//Update active index
+	const [active_id,set_active_id] = useState(0);
 	useEffect(() => {
-		console.log(stepsCache);
-	}, [stepsCache]);
+		const active_index = stepsCache.findIndex((step) => step.isActive);
+		if (active_index === -1) return;
+		if (
+			typeof selectedCard.stepID === "undefined" ||
+			stepsCache[active_index].stepID !== selectedCard.stepID
+		) {
+			setSelectedCard(stepsCache[active_index]);
+			updateStepCache(selectedCard, stepsCache, setStepsCache);
+		}
+	}, [active_id]);
 
 	return (
 		<div className="steps-container">
@@ -46,13 +55,28 @@ function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard}) {
 				/>
 			</div>
 			<div className="outer-scroll-container">
-				<ScrollArea stepsCache={stepsCache} setStepsCache={setStepsCache} />
+				<ScrollArea
+					stepsCache={stepsCache}
+					setStepsCache={setStepsCache}
+					set_active_id={set_active_id}
+				/>
 			</div>
 		</div>
 	);
 }
 
 export default PMStepsList;
+
+//Update the steps cache before changing the active step
+function updateStepCache(step, stepsCache, setStepsCache) {
+	if (typeof step === "undefined" || typeof step.stepID === "undefined") return;
+	let update_index = stepsCache.findIndex((obj) => obj.stepID === step.stepID);
+	if (update_index === -1) return;
+	step.isActive = false;
+	let tempSteps = [...stepsCache];
+	tempSteps.splice(update_index, 1, step);
+	setStepsCache(tempSteps);
+}
 
 function newStep() {}
 
@@ -71,7 +95,7 @@ function ScrollCard({step, removeStep, index}) {
 	);
 }
 
-function ScrollArea({stepsCache, setStepsCache}) {
+function ScrollArea({stepsCache, setStepsCache, set_active_id}) {
 	const draggedIndex = useRef(0);
 	const overLappedIndex = useRef(0);
 	const hoverIndex = useRef(0);
@@ -90,6 +114,7 @@ function ScrollArea({stepsCache, setStepsCache}) {
 		stepsCache.forEach((step, index) => {
 			if (index === hoverIndex.current) {
 				step.isActive = true;
+				set_active_id(step.stepID); 
 			} else {
 				step.isActive = false;
 			}

@@ -1,25 +1,32 @@
 {
     "status": 200,
     "steps": [{
-        "stepName": "Projector Power 1"
+        "stepName": "Projector Power 1",
+        "stepID": "1"
 
     }, {
-        "stepName": "Projector Power 2"
+        "stepName": "Projector Power 2",
+        "stepID": "2"
 
     }, {
-        "stepName": "Projector Power 3"
+        "stepName": "Projector Power 3",
+        "stepID": "3"
 
     }, {
-        "stepName": "Projector Power 4"
+        "stepName": "Projector Power 4",
+        "stepID": "4"
 
     }, {
-        "stepName": "Projector Power 5"
+        "stepName": "Projector Power 5",
+        "stepID": "5"
 
     }, {
-        "stepName": "Projector Power 6"
+        "stepName": "Projector Power 6",
+        "stepID": "6"
 
     }, {
-        "stepName": "Projector Power 7"
+        "stepName": "Projector Power 7",
+        "stepID": "8"
 
     }]
 }

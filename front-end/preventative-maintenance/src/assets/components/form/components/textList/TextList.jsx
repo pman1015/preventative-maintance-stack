@@ -1,14 +1,30 @@
 import React, {useEffect, useState} from "react";
 import ScrollPane from "../../../ScrollPane/ScrollPane";
 import updateCache from "../../util/updateCache";
+import ScrollPaneV2 from "../ScrollPanev2/ScrollPaneV2";
 import TextField from "../textEdit/textField";
 import {MinusCircle, PlusCircle} from "./svgs";
 
 import "./TextList.css";
-function TextList({cachedChanges, setCachedChanges, name, isEditable}) {
+function TextList({
+	cachedChanges,
+	setCachedChanges,
+	name,
+	isEditable,
+	styleClass,
+}) {
 	const [textBoxes, setTextBoxes] = useState([]);
 	const [localCache, setLocalCache] = useState({});
 
+	const [style, setStyle] = useState({
+		minHeight: "30px",
+		maxHeight: "50px",
+	});
+	useEffect(() => {
+		if (typeof styleClass !== "undefined") {
+			setStyle(styleClass);
+		}
+	}, [styleClass]);
 	useEffect(() => {
 		try {
 			const index = cachedChanges.values.findIndex((obj) => obj.name === name);
@@ -17,14 +33,18 @@ function TextList({cachedChanges, setCachedChanges, name, isEditable}) {
 
 				let tempLoacalCache = [];
 				let update = false;
-				if (typeof localCache.values === "undefined") update = true;
+				if (
+					typeof localCache.values === "undefined" ||
+					localCache.values.length === 0
+				)
+					update = true;
 				for (let i = 0; i < options.length; i++) {
-					if (update || options[i] === localCache.values[i].value) {
+					if (update || options[i] !== localCache.values[i].value) {
 						update = true;
 					}
 					tempLoacalCache.push({name: i, value: options[i]});
 				}
-				if (update) {
+				if (update || options.length < 1) {
 					setLocalCache({values: tempLoacalCache});
 				} else {
 					console.log("no change");
@@ -83,7 +103,7 @@ function TextList({cachedChanges, setCachedChanges, name, isEditable}) {
 					{PlusCircle()}
 				</button>
 			</div>
-			<ScrollPane cards={textBoxes} height={200} width={400} />
+			<ScrollPaneV2 cards={textBoxes} style={style} />
 		</div>
 	);
 }

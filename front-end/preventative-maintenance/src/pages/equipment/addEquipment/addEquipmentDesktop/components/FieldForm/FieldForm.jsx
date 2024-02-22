@@ -76,7 +76,13 @@ const FieldForm = ({cache, setCache}) => {
 export default FieldForm;
 
 const defaultDropdownConfig = {
-	inputs: [{fieldName: "Possible Values", type: "textList"}],
+	inputs: [
+		{
+			fieldName: "Possible Values",
+			type: "textList",
+			styleClass: {minHeight: "150px", maxHeight: "150px"},
+		},
+	],
 };
 const defaultTextFieldConfig = {
 	inputs: [{fieldName: "default value", type: "text"}],

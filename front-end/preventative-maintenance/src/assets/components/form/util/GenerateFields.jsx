@@ -116,6 +116,7 @@ function GenerateField(
 						cachedChanges={cachedChanges}
 						setCachedChanges={setCachedChanges}
 						name={name}
+						styleClass={styleClass}
 					/>
 				);
 		}

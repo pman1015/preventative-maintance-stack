@@ -13,7 +13,7 @@ import "./StepList.css";
  * @param {function(Object)} param0.setSelectedCard - function to set the value of the selected card
  * @returns {JSX.Element.PMStepsList} - returns a functional component to select and reorder PM Steps
  */
-function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard}) {
+function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard,set_steps_count}) {
 	//Use Effect and use state to set the device type locally when the device type cache is updated
 	const [deviceType, setDeviceType] = useState("");
 	useEffect(() => {
@@ -42,6 +42,7 @@ function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard}) {
 	//When the steps cache is updated if the active card has changed update the old card in the cache and set the new active card as selectedCard
 
 	useEffect(() => {
+		set_steps_count(stepsCache.length);
 		const active_index = stepsCache.findIndex((step) => step.isActive);
 		if (active_index === -1) return;
 		if (
@@ -93,7 +94,7 @@ function updateStepCache(step, stepsCache, setStepsCache, active_index) {
 	//If the step is not in the cache exit as there is no step to update
 	if (update_index === -1) return;
 	//If the step is in the cache and is the active step set it to active
-
+	step.index = update_index;
 	if(typeof active_index !== "undefined" )step.isActive = Number(step.stepID) - 1 === active_index ? true : false;
 	//Copy and update the cache
 	let tempSteps = [...stepsCache];

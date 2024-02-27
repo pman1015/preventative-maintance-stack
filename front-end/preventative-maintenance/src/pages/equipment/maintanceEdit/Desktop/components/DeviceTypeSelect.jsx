@@ -23,6 +23,7 @@ function DeviceTypeSelect({deviceSelectCache, setDeviceSelectCache}) {
 						fieldName: "Device Type",
 						type: "dropdown",
 						options: deviceTypes.deviceTypes,
+						styleClass: {width: "150", height: "20"},
 					},
 				],
 			});
@@ -30,7 +31,6 @@ function DeviceTypeSelect({deviceSelectCache, setDeviceSelectCache}) {
 	}, []);
 	return (
 		<InputForm
-		
 			isEditable={true}
 			initialStates={deviceSelectInitial}
 			cachedChanges={deviceSelectCache}

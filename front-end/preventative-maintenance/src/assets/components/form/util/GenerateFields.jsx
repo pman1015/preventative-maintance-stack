@@ -4,7 +4,7 @@ import TextBox from "../components/textBox/textBox";
 import TextChoiceBoxField from "../components/textChoiceBox/textChoiceBoxField";
 import TextField from "../components/textEdit/textField";
 import TextList from "../components/textList/TextList";
-
+import ToggleList from "../components/toggleList/ToggleList";
 /**
  * Function that generates the appropriate InputForm element based on the type and
  * returns it
@@ -119,6 +119,16 @@ function GenerateField(
 						styleClass={styleClass}
 					/>
 				);
+			case "toggleList":
+				return(
+					<ToggleList
+						isEditable={isEditable}
+						cachedChanges={cachedChanges}
+						setCachedChanges={setCachedChanges}
+						name={name}
+						styleClass={styleClass}
+					/>
+				)
 		}
 	};
 	return <div className="form-field">{fieldType(type)}</div>;

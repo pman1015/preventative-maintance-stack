@@ -1,6 +1,7 @@
     .left-side-page {
         height: 520px;
-        padding-right: 32px;
+        padding-right: 38px;
+        max-width: 33%;
     }
     
     .light-card {

@@ -14,7 +14,7 @@
     }
     
     .user-message h1 {
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 200;
         margin: 0;
         padding: 0;
@@ -36,7 +36,18 @@
     }
     
     .step-edit h1 {
-        font-size: 20px;
+        font-size: 16px;
+        font-weight: 200;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .step-edit .form-field {
+        padding-top: 4px
+    }
+    
+    .step-edit h2 {
+        font-size: 16px;
         font-weight: 200;
         margin: 0;
         padding: 0;

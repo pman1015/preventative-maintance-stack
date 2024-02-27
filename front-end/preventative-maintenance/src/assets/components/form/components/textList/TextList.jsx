@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ScrollPane from "../../../ScrollPane/ScrollPane";
+import ScrollPaneV2 from "../../../ScrollPanev2/ScrollPaneV2";
 import updateCache from "../../util/updateCache";
-import ScrollPaneV2 from "../ScrollPanev2/ScrollPaneV2";
 import TextField from "../textEdit/textField";
 import {MinusCircle, PlusCircle} from "./svgs";
 
@@ -81,7 +81,7 @@ function TextList({
 
 	function addNewBox() {
 		try {
-			let size = typeof localCache.size === "undefined" ? 0 : localCache.size;
+			let size = typeof localCache.values === "undefined" ? 0 : localCache.values.length;
 			let tempCache = [];
 			if (typeof localCache.values !== "undefined") {
 				tempCache = [...localCache.values];

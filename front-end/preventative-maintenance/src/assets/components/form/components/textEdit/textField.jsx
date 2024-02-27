@@ -30,7 +30,6 @@ function TextField({
 	const [textValue, setTextValue] = useState("");
 	//Function updates the text value whenever the cache is updated.
 	useEffect(() => {
-		console.log("fieldChange: " + cachedChanges);
 		if (
 			typeof cachedChanges === "undefined" ||
 			typeof cachedChanges.values === "undefined"
@@ -42,7 +41,6 @@ function TextField({
 		for (let i = 0; i < cachedChanges.values.length; i++) {
 			let item = cachedChanges.values[i];
 			if (item.name === name) {
-				console.log("value: " + item.value);
 				setTextValue(item.value);
 				break;
 			}

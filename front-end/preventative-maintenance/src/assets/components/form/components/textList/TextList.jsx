@@ -77,7 +77,7 @@ function TextList({
 		} catch (e) {
 			console.error(e);
 		}
-	}, [localCache]);
+	}, [localCache,setLocalCache]);
 
 	function addNewBox() {
 		try {
@@ -111,9 +111,14 @@ export default TextList;
 
 function TextListEntry({cache, setCache, name, isEditable}) {
 	function removeSelf() {
-		let temp = [...cache.values];
-		temp.splice(name, 1);
-		setCache({values: temp});
+		
+		let updatedCache = [];
+		for(let i = 0 ; i < cache.values.length; i++) {
+			if(cache.values[i].name !== name) {
+				updatedCache.push({name: updatedCache.length, value: cache.values[i].value})
+			}
+		}
+		setCache({values: updatedCache});
 	}
 
 	return (

@@ -2,133 +2,204 @@ import {useEffect, useRef, useState} from "react";
 import InputForm from "../../../../../assets/components/form/form";
 import updateCache from "../../../../../assets/components/form/util/updateCache";
 import "./ConfigureLogging.css";
-function ConfugureLogging({selectedCard, setSelectedCard}) {
-	const [logsCache, setLogsCache] = useState({});
-	const [updateFieldConfig, setUpdateFieldConfig] = useState({});
-
-	const current_card_id = useRef(-1);
-	const current_information_type = useRef("");
-
-	//On update to the selected card get the states for fields
+function ConfigureLogging({selectedCard, setSelectedCard, deviceOptions}) {
+	const [configCache, setConfigCache] = useState({});
+/*
 	useEffect(() => {
 		try {
-			if (
-				typeof selectedCard.informationType !== "undefined" &&
-				selectedCard.informationType !== ""
-			) {
-				problemOptions(selectedCard.stepID, selectedCard.informationType);
+			let index = configCache.values.findIndex(
+				(obj) => obj.name === "Field to Update"
+			);
+			if (index !== -1) {
+				let newField = configCache.values[index].value;
+				if (newField !== selectedCard.fieldToUpdate) {
+					setSelectedCard((prevState) => ({
+						...prevState,
+						fieldToUpdate: newField,
+					}));
+				}
 			}
-			current_card_id.current = selectedCard.stepID;
-			current_information_type.current = selectedCard.informationType;
 		} catch (e) {}
-	}, [selectedCard]);
-	function problemOptions(new_id, new_type) {
-		//If new card load from card
-		if (new_id !== current_card_id.current) {
-			if (typeof selectedCard.problemOptions !== "undefined") {
-				updateCache("problemOptions", selectedCard, logsCache, setLogsCache);
-				return;
-			}
-			loadDefaultOptions(new_type);
-			return;
+	}, [configCache]);
+	*/
+	useEffect(() => {
+		//update the field to update
+		if (typeof selectedCard.fieldToUpdate === "undefined") {
+			setSelectedCard((prevState) => ({...prevState, fieldToUpdate: "none"}));
 		} else {
-			if (current_information_type.current !== new_type) {
-				loadDefaultOptions(new_type);
+			updateCache(
+				"Field to Update",
+				selectedCard.fieldToUpdate,
+				configCache,
+				setConfigCache
+			);
+			
+		}
+		//Case: no problemOptions but selected information type
+		if (typeof selectedCard.problemOptions === "undefined") {
+			console.log("no problemOptions");
+			if (
+				typeof selectedCard.informationType === "undefined" ||
+				selectedCard.informationType === ""
+			) {
+				updateCache("problemOptions", [], configCache, setConfigCache);
 				return;
 			}
-			if (new_type === "options") {
+			defaultLoad();
+		} else {
+			try {
+				if (selectedCard.informationType !== selectedCard.configType) {
+					defaultLoad();
+				} else {
+					updateExitingOptions();
+				}
+			} catch (e) {
+				console.log(e);
 			}
 		}
-	}
-	function loadDefaultOptions(type) {
-		switch (type) {
-			case "boolean":
+	}, [selectedCard]);
+	function updateExitingOptions() {
+		console.log("updateExitingOptions");
+		let tempOptions = [...selectedCard.problemOptions];
+
+		if (
+			selectedCard.configType === "boolean" ||
+			selectedCard.configType === "text"
+		) {
+			updateCache("problemOptions", tempOptions, configCache, setConfigCache);
+		} else {
+			if (selectedCard.configType === "options") {
+				let updatedOptions = [];
+				let stored_possibleValues = [...selectedCard.possibleValues];
+
+				//remove options no longer in the possible values
+				for (let i = 0; i < tempOptions.length; i++) {
+					let found_index = stored_possibleValues.findIndex(
+						(obj) => obj === tempOptions[i].name
+					);
+					if (found_index !== -1) {
+						updatedOptions.push(tempOptions[i]);
+						stored_possibleValues.splice(found_index, 1);
+					} else {
+					}
+				}
+				//add new values
+				for (let i = 0; i < stored_possibleValues.length; i++) {
+					updatedOptions.push({
+						name: stored_possibleValues[i],
+						selected: false,
+					});
+				}
+				if (
+					JSON.stringify(selectedCard.problemOptions) !==
+					JSON.stringify(updatedOptions)
+				) {
+					let tempCard = {...selectedCard};
+					tempCard.problemOptions = updatedOptions;
+					tempCard.configType = selectedCard.informationType;
+					setSelectedCard(tempCard);
+				}
+
 				updateCache(
 					"problemOptions",
-					[
-						{name: "true", selected: false},
-						{name: "false", selected: false},
-					],
-					logsCache,
-					setLogsCache
+					updatedOptions,
+					configCache,
+					setConfigCache
 				);
-				return;
-			case "text":
-				return;
-			case "options":
-				try {
-					let options = selectedCard.possibleValues;
-					if (typeof options !== "undefined" && options.length > 0) {
-						for (let i = 0; i < options.length; i++) {
-							let temp = {name: options[i], selected: false};
-							options.splice(i, 1, temp);
-						}
-						updateCache("problemOptions", options, logsCache, setLogsCache);
-					}
-				} catch (e) {}
-				return;
+			}
 		}
 	}
 
-	useEffect(() => {
-		try {
-			let tempCache = {...selectedCard};
-			for (let i = 0; i < logsCache.values.length; i++) {
-				tempCache[logsCache.values[i].name] = logsCache.values[i].value;
+	//load and set the problem options either setting or overiding the existing problem options
+	function defaultLoad() {
+		console.log("default options");
+		if (selectedCard.informationType === "options") {
+			if (
+				typeof selectedCard.possibleValues !== "undefined" &&
+				Array.isArray(selectedCard.possibleValues)
+			) {
+				let newOptions = [];
+				selectedCard.possibleValues.forEach((value) => {
+					newOptions.push({name: value, selected: false});
+				});
+				let tempCard = {...selectedCard};
+				tempCard.problemOptions = newOptions;
+				tempCard.configType = selectedCard.informationType;
+				setSelectedCard(tempCard);
+				updateCache("problemOptions", newOptions, configCache, setConfigCache);
 			}
-			setSelectedCard(tempCache);
-		} catch (e) {
-			console.error(e);
+		} else {
+			let tempCard = {...selectedCard};
+			let newOptions = [];
+			if (selectedCard.informationType === "boolean") {
+				newOptions = [
+					{name: "true", selected: false},
+					{name: "false", selected: false},
+				];
+				tempCard.problemOptions = newOptions;
+				tempCard.configType = selectedCard.informationType;
+				setSelectedCard(tempCard);
+				updateCache("problemOptions", newOptions, configCache, setConfigCache);
+			} else {
+				if (selectedCard.informationType === "text") {
+					newOptions = [{name: "always", selected: false}];
+					tempCard.problemOptions = newOptions;
+					tempCard.configType = selectedCard.informationType;
+					setSelectedCard(tempCard);
+					updateCache(
+						"problemOptions",
+						newOptions,
+						configCache,
+						setConfigCache
+					);
+				}
+			}
 		}
-	}, [logsCache]);
+	}
+	const [dropdownConfig, setDropdownConfig] = useState({
+		inputs: [
+			{
+				fieldName: "Field to Update",
+				type: "dropdown",
+				styleClass: {width: "170", height: "20"},
+				options: [],
+			},
+		],
+	});
+	useEffect(() => {
+		let options = [...deviceOptions, "none"];
+		setDropdownConfig({
+			inputs: [
+				{
+					fieldName: "Field to Update",
+					type: "dropdown",
+					styleClass: {width: "170", height: "20"},
+					options: options,
+				},
+			],
+		});
+	}, [deviceOptions]);
 	return (
 		<div className="configure-logging light-card">
+			<h2>Select any options that should generate a problem.</h2>
 			<InputForm
-				initialStates={problemToggle}
-				cachedChanges={logsCache}
-				setCachedChanges={setLogsCache}
+				initialStates={logConfig}
+				cachedChanges={configCache}
+				setCachedChanges={setConfigCache}
 				isEditable={true}
 			/>
+			<h2>What value should be updated?</h2>
 			<InputForm
-				initialStates={addOptionsConfig}
-				cachedChanges={logsCache}
-				setCachedChanges={setLogsCache}
-				isEditable={true}
-			/>
-			<InputForm
-				initialStates={updateInfo}
-				cachedChanges={logsCache}
-				setCachedChanges={setLogsCache}
-				isEditable={true}
-			/>
-			<InputForm
-				initialStates={updateFieldConfig}
-				cachedChanges={logsCache}
-				setCachedChanges={setLogsCache}
+				initialStates={dropdownConfig}
+				cachedChanges={configCache}
+				setCachedChanges={setConfigCache}
 				isEditable={true}
 			/>
 		</div>
 	);
 }
-export default ConfugureLogging;
-
-const problemToggle = {
-	inputs: [
-		{
-			fieldName: "Should ths step generate a problem?",
-			type: "boolean",
-		},
-	],
-};
-const updateInfo = {
-	inputs: [
-		{
-			fieldName: "Should this information update a device field?",
-			type: "boolean",
-		},
-	],
-};
-const addOptionsConfig = {
+export default ConfigureLogging;
+const logConfig = {
 	inputs: [
 		{
 			fieldName: "problemOptions",

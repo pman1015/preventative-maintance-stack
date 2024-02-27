@@ -1,5 +1,10 @@
-.configure-logging {}
+.configure-logging {
+    padding-bottom: 12px;
+}
 
 .configure-logging h2 {
     font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
 }

@@ -25,6 +25,10 @@
     margin: 0;
     font-size: 18px;
     font-weight: lighter;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .inline_content {}

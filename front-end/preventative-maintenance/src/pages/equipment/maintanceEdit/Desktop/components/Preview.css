@@ -29,3 +29,29 @@
     font-weight: 200;
     color: white;
 }
+
+.mobile-preview-container li {
+    height: fit-content;
+    max-width: 90%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mobile-preview-container h1 {
+    text-overflow: ellipsis;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mobile-preview-container .form-field h1 {
+    color: black;
+}
+
+.mobile-preview-container h2 {
+    max-width: calc( 90% - 130px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

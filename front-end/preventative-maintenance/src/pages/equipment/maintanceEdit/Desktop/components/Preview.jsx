@@ -15,22 +15,22 @@ function Preview({selectedStep, deviceType, steps_count}) {
 	const [previewConfig, setPreviewConfig] = useState({});
 	const [previewCache, setPreviewCache] = useState({});
 	useEffect(() => {
-        let type = "";
-        switch(selectedStep.informationType){
-            case "option":
-                type = "dropdown";
-                break;
-            default:
-                type = selectedStep.informationType;
-                break;
-
-        }
+		let type = "";
+		switch (selectedStep.informationType) {
+			case "option":
+				type = "dropdown";
+				break;
+			default:
+				type = selectedStep.informationType;
+				break;
+		}
 		setPreviewConfig({
 			inputs: [
 				{
 					fieldName: selectedStep.informationLabel,
 					type: type,
-                    options: selectedStep.possibleValues
+					options: selectedStep.possibleValues,
+					styleClass: {width: "140", height: "20"},
 				},
 			],
 		});

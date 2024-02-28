@@ -3,12 +3,14 @@ import {useNavigate} from "react-router-dom";
 import "./Navbar.css";
 
 function DesktopSideNavigation() {
-
 	const navigate = useNavigate();
 	return (
 		<div className="sideNavContainer">
-			<button>
-			{/*buildings button*/}
+			<button
+				onClick={() => {
+					navigate("/buildings");
+				}}>
+				{/*buildings button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="48"
@@ -42,10 +44,9 @@ function DesktopSideNavigation() {
 				</svg>
 			</button>
 			<button
-			onClick={()=>{
-				navigate("/equipment")
-			}}
-				>
+				onClick={() => {
+					navigate("/equipment");
+				}}>
 				{/*equipment button*/}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

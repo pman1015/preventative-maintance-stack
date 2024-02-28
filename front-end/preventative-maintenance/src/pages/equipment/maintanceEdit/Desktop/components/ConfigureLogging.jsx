@@ -4,24 +4,7 @@ import updateCache from "../../../../../assets/components/form/util/updateCache"
 import "./ConfigureLogging.css";
 function ConfigureLogging({selectedCard, setSelectedCard, deviceOptions}) {
 	const [configCache, setConfigCache] = useState({});
-/*
-	useEffect(() => {
-		try {
-			let index = configCache.values.findIndex(
-				(obj) => obj.name === "Field to Update"
-			);
-			if (index !== -1) {
-				let newField = configCache.values[index].value;
-				if (newField !== selectedCard.fieldToUpdate) {
-					setSelectedCard((prevState) => ({
-						...prevState,
-						fieldToUpdate: newField,
-					}));
-				}
-			}
-		} catch (e) {}
-	}, [configCache]);
-	*/
+
 	useEffect(() => {
 		//update the field to update
 		if (typeof selectedCard.fieldToUpdate === "undefined") {
@@ -33,7 +16,6 @@ function ConfigureLogging({selectedCard, setSelectedCard, deviceOptions}) {
 				configCache,
 				setConfigCache
 			);
-			
 		}
 		//Case: no problemOptions but selected information type
 		if (typeof selectedCard.problemOptions === "undefined") {

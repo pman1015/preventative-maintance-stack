@@ -13,7 +13,12 @@ import "./StepList.css";
  * @param {function(Object)} param0.setSelectedCard - function to set the value of the selected card
  * @returns {JSX.Element.PMStepsList} - returns a functional component to select and reorder PM Steps
  */
-function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard,set_steps_count}) {
+function PMStepsList({
+	deviceTypeCache,
+	selectedCard,
+	setSelectedCard,
+	set_steps_count,
+}) {
 	//Use Effect and use state to set the device type locally when the device type cache is updated
 	const [deviceType, setDeviceType] = useState("");
 	useEffect(() => {
@@ -54,9 +59,28 @@ function PMStepsList({deviceTypeCache, selectedCard, setSelectedCard,set_steps_c
 	}, [stepsCache]);
 
 	useEffect(() => {
-	
 		updateStepCache(selectedCard, stepsCache, setStepsCache);
 	}, [selectedCard]);
+
+	//TODO: Implement the newStep function to create a new step when the plus button is clicked
+	function newStep() {
+		//Get the larges stepID from the existing steps
+		let nextID = 0;
+		stepsCache.forEach((step) => {
+			if (typeof step.stepID !== "undefined") {
+				if (step.stepID > nextID) nextID = step.stepID;
+			}
+		});
+		nextID++;
+		const newStep = {
+			stepID: nextID,
+			stepName: "New Step",
+			isActive: false,
+		};
+
+		setStepsCache([...stepsCache, newStep]);
+	}
+
 	return (
 		<div className="steps-container">
 			<div className="inline-container">
@@ -95,16 +119,14 @@ function updateStepCache(step, stepsCache, setStepsCache, active_index) {
 	if (update_index === -1) return;
 	//If the step is in the cache and is the active step set it to active
 	step.index = update_index;
-	if(typeof active_index !== "undefined" )step.isActive = Number(step.stepID) - 1 === active_index ? true : false;
+	if (typeof active_index !== "undefined")
+		step.isActive = Number(step.stepID) - 1 === active_index ? true : false;
 	//Copy and update the cache
 	let tempSteps = [...stepsCache];
 	tempSteps.splice(update_index, 1, step);
 	console.log(tempSteps);
 	setStepsCache(tempSteps);
 }
-
-//TODO: Implement the newStep function to create a new step when the plus button is clicked
-function newStep() {}
 
 /**
  * A Functional component that displays the step information

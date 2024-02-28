@@ -34,14 +34,13 @@ function StepEdit({selectedStep, setSelectedStep}) {
 	});
 	//When the selectedStep changes update the editCache with the new values from the selected step
 	const step_id = useRef(0);
-	
+
 	useEffect(() => {
 		try {
 			if (
 				typeof selectedStep.stepID === "undefined" ||
 				step_id.current === selectedStep.stepID
 			) {
-			
 				return;
 			}
 
@@ -57,7 +56,6 @@ function StepEdit({selectedStep, setSelectedStep}) {
 			});
 			setEditCache(tempCache);
 			step_id.current = selectedStep.stepID;
-			
 		} catch (e) {
 			console.log(e);
 		}
@@ -68,7 +66,8 @@ function StepEdit({selectedStep, setSelectedStep}) {
 		//Exit early if the selected step is undefined or if the selected step is changing - prevents runs mid update of the selected step
 		if (
 			typeof selectedStep.stepID === "undefined" ||
-			step_id.current !== selectedStep.stepID ){
+			step_id.current !== selectedStep.stepID
+		) {
 			return;
 		}
 		update_selected_step();

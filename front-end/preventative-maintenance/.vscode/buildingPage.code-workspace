@@ -1,0 +1,30 @@
+{
+    "folders": [
+        {
+            "name": "page",
+            "path": "../src/pages/buildings"
+        },
+        {
+            "name": "components",
+            "path": "../src/assets/components"
+        },
+        {
+            "name": "testData",
+            "path": "../src/assets/testData"
+        },
+        {
+            "name": "utilities",
+            "path": "../src/util"
+        },
+        {
+            "name": "vsCode",
+            "path": "./"
+        },
+        {
+            "path": "../src"
+        }
+    ],
+    "files":[
+        "../src/index.jsx"
+    ]
+}

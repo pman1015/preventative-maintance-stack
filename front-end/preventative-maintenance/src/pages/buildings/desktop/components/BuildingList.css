@@ -1,0 +1,70 @@
+    .building_list {
+        height: 500px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        background: #F0EEEE;
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px 0 #263c283e;
+        padding: 4px;
+    }
+    
+    .building_list h1 {
+        font-size: 24px;
+        font-weight: 200;
+        color: #373737;
+        margin: 20px 0px 12px 10px;
+        padding: 0;
+    }
+    
+    .building_list .scrollable_outer_container {
+        position: relative;
+        top: -70px;
+        background-color: #E9E9E9;
+        max-width: 95%;
+        margin-left: 2%;
+        height: 85%;
+    }
+    
+    .building_page_building_card {
+        background-color: #c3c2c233;
+        margin-top: 8px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    
+    .building_page_building_card.active {
+        background-color: #999898a3;
+    }
+    
+    .building_page_building_card:hover {
+        background-color: #c3c2c269;
+    }
+    
+    .building_page_building_card h2 {
+        font-size: 20px;
+        font-weight: 200;
+        color: #373737;
+        margin: 0;
+        padding: 4px;
+    }
+    
+    .building_list_control {
+        position: relative;
+        left: -18px;
+        top: -18px;
+        height: fit-content;
+        padding: 4px 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 16px;
+        background-color: #D9D9D9;
+        width: fit-content;
+        z-index: 4;
+        box-shadow: 4px 4px 8px 0 #263c283e;
+    }
+    
+    .svgButton:hover {
+        background-color: #dfdfdf
+    }

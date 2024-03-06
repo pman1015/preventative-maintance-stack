@@ -1,0 +1,103 @@
+    .building_page_room_container {
+        margin-left: 24px;
+        width: 460px;
+        height: 500px;
+        background: #F0EEEE;
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px 0 #263c283e;
+        padding: 4px;
+    }
+    
+    .building_page_room_container .form-field {
+        margin-left: 20px;
+    }
+    
+    .building_page_room_container .inline-container {
+        margin: 10px 0px 0px 10px;
+        align-items: center;
+    }
+    
+    .building_page_room_container h1 {
+        font-size: 24px;
+        font-weight: 300;
+        color: #373737;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .room_config .scrollable_outer_container {
+        height: 84%;
+        max-width: 100px;
+    }
+    
+    .building_page_room_card_container {
+        width: 90%;
+        height: 24px;
+        background-color: #DCDBDB;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 4px;
+    }
+    
+    .building_page_room_card_container h2 {
+        padding: 0;
+        font-size: 16px;
+        font-weight: 100;
+        color: black;
+        margin-left: 8px;
+    }
+    
+    .building_page_room_card_container.active {
+        background-color: #4aba9675;
+    }
+    
+    .room_config {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .room_config_container {
+        background-color: #ffffffc6;
+        height: calc( 100% - 80px);
+        margin-left: 3%;
+        width: 68%;
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px 0 #263c283e;
+    }
+    
+    .room_config_container .scrollable_outer_container {
+        max-height: 40%;
+        max-width: 85%;
+        background-color: #F0EEEE;
+    }
+    
+    .room_config_container h2 {
+        font-size: 20px;
+        font-weight: 200;
+        margin: 0px 0px 0px 10px;
+        padding: 0;
+    }
+    
+    .room_equipment_card {
+        height: 24px;
+        background-color: #DCDBDB;
+        margin-bottom: 6px;
+        border-radius: 12px;
+        padding: 4px;
+    }
+    
+    .room_equipment_card:hover {
+        background-color: #989898aa;
+    }
+    
+    .room_equipment_card h2 {
+        width: 40%;
+        font-size: 16px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+    }

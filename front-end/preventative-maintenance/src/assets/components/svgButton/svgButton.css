@@ -24,3 +24,11 @@
 .red {
     background-color: #ca43439d;
 }
+
+.gray {
+    background-color: #D3D3D3;
+}
+
+.withShadow {
+    box-shadow: 2px 2px 4px 0 #1518163e;
+}

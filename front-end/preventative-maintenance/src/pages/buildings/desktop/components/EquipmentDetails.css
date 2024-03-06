@@ -1,0 +1,108 @@
+    .equipment-details-container {
+        width: 220px;
+        height: calc (100% - 6px);
+        background-color: #f0eeee;
+        margin-left: 8px;
+        border-radius: 12px;
+        padding: 4px;
+    }
+    
+    .equipment-details-container h1 {
+        margin-top: 12px;
+        margin-left: 12px;
+        font-size: 24px;
+        font-weight: 400;
+        padding: 0;
+    }
+    
+    .equipment-details-container .scrollable_outer_container {
+        background-color: #f0eeee;
+        ;
+    }
+    
+    .equipment-details-card {
+        display: flex;
+        align-items: center;
+        width: 150px;
+    }
+    
+    .equipment-details-card h2 {
+        font-size: clamp(1rem, .75vw, 2rem);
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        max-width: 200px;
+        text-overflow: ellipsis;
+    }
+    
+    .equipment-details-card {
+        justify-content: space-between;
+        width: 100%;
+        gap: 5%;
+    }
+    
+    .equipment-details-card p {
+        font-size: clamp(1rem, .75vw, 2rem);
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+        color: black;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        overflow-x: auto;
+        flex-shrink: 1;
+    }
+    
+    .equipment-details-card p::-webkit-scrollbar {
+        width: 2px;
+        height: 6px;
+        background-color: transparent;
+    }
+    
+    .equipment-details-card p::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 2px;
+    }
+    
+    .equipment-details-card p::-webkit-scrollbar-thumb:hover {
+        background-color: #555555a2;
+    }
+    
+    .equipment-details-card p::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    .form-field h1 {
+        font-size: clamp(1rem, .75vw, 2rem);
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        max-width: 200px;
+        text-overflow: ellipsis;
+    }
+    
+    .form-field {
+        margin-bottom: 12px;
+    }
+    
+    .form-field h2 {
+        font-size: clamp(1rem, .75vw, 2rem);
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        max-width: 200px;
+        text-overflow: ellipsis;
+    }
+    
+    .form-field li {
+        font-size: clamp(1rem, .75vw, 2rem);
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        max-width: 200px;
+        text-overflow: ellipsis;
+    }

@@ -1,0 +1,33 @@
+{
+    "status": 200,
+    "roomInfo": {
+        "notes": "",
+        "equipment": [{
+                "type": "projector",
+                "name": "Epson-5450",
+                "SUNYTag": "some number here",
+                "Serial Number": "some other number",
+                "Resolution": "1920x1080"
+            }, {
+                "type": "processor",
+                "name": "DMPS-150",
+                "SUNYTag": "some number",
+                "Serial Number": "some other number",
+                "Program": "standard DMPS-150 v1.1"
+            }, {
+                "type": "Screen",
+                "name": "in ceiling mount",
+                "SUNYTag": "none",
+                "Serial Number": "none",
+                "Size": "10ft",
+                "Aspect Ratio": "16:9"
+            },
+            {
+                "type": "touchPanel",
+                "name": "TSW-760",
+                "Program": "standard TSW-760 v1.1 UI"
+            }
+        ]
+    }
+
+}

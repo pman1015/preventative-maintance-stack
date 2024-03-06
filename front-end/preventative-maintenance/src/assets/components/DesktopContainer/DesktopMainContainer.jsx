@@ -18,7 +18,7 @@ function DesktopContainer(props) {
 	const navigate = useNavigate();
 	return (
 		<div className="BackgroundDesktop">
-			{jwt === null && <Navigate to="/" replace={true} />}
+			{/*jwt === null && <Navigate to="/" replace={true} />*/}
 			<div className="MainContainer">
 				<div className="DesktopHeader">
 					<LogoHeader />
